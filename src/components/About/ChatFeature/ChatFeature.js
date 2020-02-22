@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
+import H3 from '../../Library/Style/H3'
 
 const MessageXavierWrapper = styled.div`
     text-align: left;
@@ -114,7 +115,7 @@ class ChatFeature extends Component {
                 {this.state.writting ? <WrittingMessage>Xavier is writting...</WrittingMessage> : null}
 
                 <SelectionArea>
-                    <p>Ask me something:</p>
+                    <H3 body="Ask me something:" />
                     <SelectMessage onClick={(el) => {
                         renderQuestion(el, 'Hi, Xavier', 'sender', 'Hey!')
                         }}>Hi, Xavier</SelectMessage>

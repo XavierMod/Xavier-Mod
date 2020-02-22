@@ -6,7 +6,6 @@ import styled from 'styled-components';
 
 const ChangeView = styled.div`
     text-align: right;
-    padding: 10px 0;
 
     span {
         font-weight: 500;

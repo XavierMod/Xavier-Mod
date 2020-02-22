@@ -1,0 +1,14 @@
+@keyframes Width350 {
+    from {width: 0%;}
+    to {width: 350px;}
+}
+
+@keyframes WidthFull {
+    from {width: 0%;}
+    to {width: 100%;}
+}
+
+@keyframes OpacityLeft {
+    from {opacity: 0; padding-right: 500px}
+    to {opacity: 1; padding-right: 0}
+}

@@ -6,7 +6,8 @@ const TechStackModule = (props) => {
     const TechStackModuleWrapper = styled.div`
         display: inline-flex;
         width: 200px;
-        margin: 20px;
+        margin: 20px 0;
+        padding-right: 40px;
     `;
 
     const TechStackModuleText = styled.div`
