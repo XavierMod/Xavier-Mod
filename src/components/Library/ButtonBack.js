@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import {Link} from 'gatsby'
 import AniLink from "gatsby-plugin-transition-link/AniLink";
+import { sizes, largerThan, smallerThan } from '../Helpers/mediaQueries';
 
 const SVG = styled.svg`
     transform: ${props => props.rotation};
@@ -18,6 +19,13 @@ const Back = styled.div`
     cursor: pointer;
     border: 3px solid black;
     transition: all ease 0.2s;
+    z-index: 1000;
+    
+    ${smallerThan.tablet`
+        margin: 20px;
+        position: absolute;
+        top: 0;
+    `};
 
 &:hover {
     background-color: black;

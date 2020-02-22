@@ -64,6 +64,7 @@ const DefaultAbout = () => {
 
             <ExperienceBlock>
                 <H3 body="MY CAREER (SO FAR)" />
+
                 <ExperienceLine>
                     <img src="https://media-exp1.licdn.com/dms/image/C4D0BAQHE46B2AfQpbA/company-logo_100_100/0?e=1590624000&v=beta&t=nPnElYKyOlidIhfQmXMGY2e0ggPOrATfdyVA3a6wxuA" />
                     <H3 body="Front end developer (Junior) 2019-2020" />

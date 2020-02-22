@@ -13,6 +13,7 @@ const MessageXavier = styled.div`
     margin-bottom: 5px;
     display: inline-block;
     background-color: #eee;
+    max-width: 300px;
 `;
 
 const MessageSenderWrapper = styled.div`
@@ -30,6 +31,7 @@ const MessageSender = styled.div`
     display: inline-block;
     background-color: #037ffc;
     color: white;
+    max-width: 300px;
 `;
 
 const SelectionArea = styled.div`
@@ -57,7 +59,24 @@ const SelectMessage = styled.div`
     }
 `;
 
-const WrittingMessage = styled.p`
+const OtherSelectMessage = styled.div`
+    border: 1px solid #037ffc;
+    border-radius: 20px;
+    padding: 8px 15px;
+    margin: 5px 0;
+    margin-right: 10px;
+    display: inline-block;
+    background-color: white;
+    color: #037ffc;
+    cursor: pointer;
+
+    &:hover {
+        background-color: #037ffc;
+         color: white;
+    }
+`;
+
+const WritingMessage = styled.p`
     color: #037ffc;
     font-size: 13px;
 `;
@@ -69,7 +88,7 @@ class ChatFeature extends Component {
             questions: [
                 {body: 'Hi! Ask me something!', type: 'xavier'},
             ],
-            writting: false
+            writing: false
         }
     }
     render() {
@@ -82,11 +101,11 @@ class ChatFeature extends Component {
         }
 
         const renderAnswer = (answerBody) => {
-            this.setState({writting: true});
+            this.setState({writing: true});
             setTimeout(() => { 
                 let stateCopy = {...this.state};
                 stateCopy.questions.push({body: answerBody, type: 'xavier'});    
-                this.setState({questions: stateCopy.questions, writting: false});
+                this.setState({questions: stateCopy.questions, writing: false});
             }, 1000);
         }
 
@@ -112,7 +131,7 @@ class ChatFeature extends Component {
                     }
                 })}
 
-                {this.state.writting ? <WrittingMessage>Xavier is writting...</WrittingMessage> : null}
+                {this.state.writing ? <WritingMessage>Xavier is writing...</WritingMessage> : null}
 
                 <SelectionArea>
                     <H3 body="Ask me something:" />
@@ -120,11 +139,21 @@ class ChatFeature extends Component {
                         renderQuestion(el, 'Hi, Xavier', 'sender', 'Hey!')
                         }}>Hi, Xavier</SelectMessage>
                     <SelectMessage onClick={(el) => {
-                        renderQuestion(el, 'What did you study?', 'sender', 'Digital Design')
-                        }}>What did you study?</SelectMessage>
+                        renderQuestion(el, 'Front End or UI Design?', 'sender', 'Although I started my career as a UI Designer, I have transitioned to Front-End Development and made it my strongest skill. I will always want to keep my UI Design skillset, though. ')
+                        }}>Front End or UI Design?</SelectMessage>
                     <SelectMessage onClick={(el) => {
-                        renderQuestion(el, 'Are you open to new opportunities?', 'sender', 'Maybe...')
+                        renderQuestion(el, 'Are you open to new opportunities?', 'sender', "I'm actively looking for part opportunities and side projects at the moment!")
                         }}>Are you open to new opportunities?</SelectMessage>
+                    <SelectMessage onClick={(el) => {
+                        renderQuestion(el, 'Are you a University student?', 'sender', "Yes. I'm currently in my second year of a Bachelor's degree in Digital Design at Brunel University London")
+                        }}>Are you a University student?</SelectMessage>
+                    <SelectMessage onClick={(el) => {
+                        renderQuestion(el, 'Coding experience?', 'sender', "I've been coding since September 2018, so I would still consider myself a Junior developer. I also worked at karmoon.co.uk as a Front End Developer Junior until January 2020.")
+                        }}>Coding experience?</SelectMessage>
+                    <SelectMessage onClick={(el) => {
+                        renderQuestion(el, 'Where are you from?', 'sender', "I was born in Barcelona, Spain. However, I moved to London in 2018 and found a new place to call home. Though I'd like to travel in a near future, my end goal is to stay in the United Kingdom.")
+                        }}>Where are you from?</SelectMessage>
+                    <a href="mailto:hi.xavier.mod@gmail.com"><OtherSelectMessage>Other question</OtherSelectMessage></a>
                 </SelectionArea>
             </ChatFeatureWrapper>
         )

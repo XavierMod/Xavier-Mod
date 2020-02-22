@@ -2,14 +2,40 @@ import React from 'react'
 import Layout from '../components/Layout/Layout';
 import BlogList from '../components/Blog/BlogList';
 import H3 from '../components/Library/Style/H3';
+import {useStaticQuery, graphql} from 'gatsby';
 
-const blog = () => {
+const Blog = () => {
+    const response = useStaticQuery(getPosts);
+    const data = response.posts.edges;
     return (
         <Layout>
             <H3 body="Blog posts" />
-            <BlogList />
+            <BlogList data={data} />
         </Layout>
     )
 }
 
-export default blog
+const getPosts = graphql`
+query {
+    posts: allContentfulBlogPost {
+      edges {
+        node {
+          title
+          description
+          slug
+          image {
+            fluid {
+              ...GatsbyContentfulFluid
+            }
+          }
+          date
+          body {
+            body
+          }
+        }
+      }
+    }
+  }
+`;
+
+export default Blog;

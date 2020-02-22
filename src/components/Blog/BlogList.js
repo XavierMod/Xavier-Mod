@@ -1,12 +1,31 @@
-import React from 'react'
+import React, { Component } from 'react'
 import BlogThumbnail from './BlogThumbnail'
 
-const BlogList = () => {
-    return (
-        <>
-        <p>The blog will be available soon</p>
-        </>
-    )
+class BlogList extends Component {
+
+    state = {
+        posts: undefined
+    }
+
+    componentWillMount() {
+        this.setState({
+            posts: this.props.data
+        })
+    }
+
+    render() {
+        return (
+            <>
+            {this.state.posts.map((el, ind) => {
+                return( <BlogThumbnail 
+                        key={ind} 
+                        post={el.node}
+                    
+                    />)
+            })}
+            </>
+        )
+    }
 }
 
 export default BlogList

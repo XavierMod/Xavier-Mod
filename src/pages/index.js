@@ -9,12 +9,18 @@ import Clap from '../components/Helpers/Clap';
 import {Link} from 'gatsby'
 import H3 from '../components/Library/Style/H3';
 import AniLink from "gatsby-plugin-transition-link/AniLink";
+import { sizes, largerThan, smallerThan } from '../components/Helpers/mediaQueries';
 
 const LandingContent = styled.div`
     overflow: hidden;
     cursor: none;
     height: 100vh;
     display: flex;
+
+    ${smallerThan.tablet`
+        display: block;
+        height: auto;
+    `};
 `;
 
 const LeftSection = styled.div`
@@ -32,10 +38,17 @@ const ClapWrapper = styled.div`
     right: 0;
     bottom: 0;
     padding: 100px;
+
+    ${smallerThan.tablet`
+        display: none;
+    `};
 `;
 
 const LogoWrapper = styled.div`
-
+    ${smallerThan.tablet`
+        display: block;
+        margin-bottom: 20px;
+    `};
 `;
 
 const ProfilePicWrapper = styled.div`
@@ -48,6 +61,14 @@ const ProfilePicWrapper = styled.div`
     animation-name: Width350;
     animation-duration: 1.5s;
     animation-timing-function: ease;
+
+    ${smallerThan.tablet`
+
+        div {
+            width: 100%;
+            height: 300px;
+        }
+    `};
 `;
 
 const NavBarLanding = styled.div`
@@ -57,6 +78,11 @@ const NavBarLanding = styled.div`
     li {
         margin: 5px 0;
     }
+
+    ${smallerThan.tablet`
+        padding: 50px 0;
+        font-size: 22px;
+    `};
 `;
 
 const DecorativeBG = styled.div`
@@ -70,6 +96,9 @@ const DecorativeBG = styled.div`
     animation-delay: 0.5s;
     animation-fill-mode: backwards;
 
+    ${smallerThan.tablet`
+        display: none;
+    `};
 `;
 
 const FooterLanding = styled.div`
@@ -78,6 +107,10 @@ const FooterLanding = styled.div`
     padding: 20px;
     font-size: 11px;
     text-transform: uppercase;
+
+    ${smallerThan.tablet`
+        position: static;
+    `};
 `;
 
 const LandingLinks = styled.div`
@@ -87,6 +120,11 @@ const LandingLinks = styled.div`
     padding: 80px;
     text-align: right;
     font-size: 11px;
+
+    ${smallerThan.tablet`
+        padding: 10px;
+        z-index: 1000px;
+    `};
 `;
 
 const Info = styled.div`
@@ -98,6 +136,11 @@ const Info = styled.div`
     animation-timing-function: ease;
     animation-delay: 0.5s;
     animation-fill-mode: backwards;
+
+    ${smallerThan.tablet`
+        display: block;
+        padding: 30px;
+    `};
 `;
 
 const InfoLeft = styled.div`
@@ -148,7 +191,6 @@ class index extends Component {
                             </div>
                         </LandingLinks>
                         <DecorativeBG style={{height: '200px', marginTop: '200px'}} />
-                        <FooterLanding>© 2020 by Xavier Mod. All rights reserved. Built with Gatsby.js and Contentful.</FooterLanding>
                     </LeftSection>
                     <RightSection>
                         <DecorativeBG style={{height: '250px'}} />
@@ -196,6 +238,7 @@ class index extends Component {
                         </Info>
                     </RightSection>
                 </LandingContent>
+                <FooterLanding>© 2020 by Xavier Mod. All rights reserved. Built with Gatsby.js and Contentful.</FooterLanding>
             </React.Fragment>
         )
     }

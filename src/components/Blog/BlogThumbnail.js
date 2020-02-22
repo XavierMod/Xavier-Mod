@@ -1,13 +1,31 @@
 import React from 'react'
 import styled from 'styled-components';
+import Img from 'gatsby-image';
+import {Link} from 'gatsby'
+import { sizes, largerThan, smallerThan } from '../Helpers/mediaQueries';
 
 const MainWrapper = styled.div`
     background: white;
-    width: 700px;
+    width: 100%;
     position: relative;
     overflow: hidden;
     cursor: pointer;
     margin-bottom: 100px;
+    z-index: 100;
+
+    a {
+        text-decoration: none;
+        color: black;
+    }
+
+    p {
+        font-family: 'Noto Serif KR';
+    }
+
+    ${smallerThan.tablet`
+        width: 100%;
+        margin: 60px auto;
+    `};
 `;
 
 const ImageThumbnail = styled.img`
@@ -17,10 +35,10 @@ const ImageThumbnail = styled.img`
 `;
 
 const Info = styled.div`
-
     h1 {
-        text-transform: lowercase;
         font-weight: 500;
+        font-size: 22px;
+        font-family: 'DM Serif Display';
     }
 `;
 
@@ -50,22 +68,22 @@ const ShortDescription = styled.div`
     padding-top: 10px;
 `;
 
-const BlogThumbnail = () => {
+const BlogThumbnail = (props) => {
+    const { title, slug, description, date, image:{fluid} } = props.post;
     return (
         <MainWrapper>
-            <ImageThumbnail src="https://picsum.photos/1920/1080"/>
-            <Info>
-                <SubHeading>
-                    <InfoTime> 12/21/2901</InfoTime>
-                    <Length>
-                        <span>7 MINUTES READ</span>
-                    </Length>
-                </SubHeading>
-                <h1>My favourite light</h1>
-                <ShortDescription>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco</p>
-                </ShortDescription>
-            </Info>
+            <Link to={"/blog/" + slug}>
+                <Img style={{height: '290px', filter: 'grayscale(100%)'}} fluid={fluid}/>
+                <Info>
+                    <SubHeading>
+                        <InfoTime>{date}</InfoTime>
+                    </SubHeading>
+                    <h1>{title}</h1>
+                    <ShortDescription>
+                        <p>{description}</p>
+                    </ShortDescription>
+                </Info>
+            </Link>
         </MainWrapper>
     )
 }

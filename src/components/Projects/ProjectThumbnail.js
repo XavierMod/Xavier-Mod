@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
 import {useStaticQuery, graphql} from 'gatsby'
+import { sizes, largerThan, smallerThan } from '../Helpers/mediaQueries';
 
 const getDefaultImage = graphql`
     query {
@@ -16,26 +17,26 @@ const getDefaultImage = graphql`
 `;
 
 const Info = styled.div`
-text-transform: uppercase;
-z-index: -1;
-transition: all ease 0.4s;
-color: black;
-text-align: left;
+    text-transform: uppercase;
+    z-index: 100;
+    transition: all ease 0.4s;
+    color: black;
+    text-align: left;
 
 
-p {
-    font-weight: 800;
-    display: inline-block;
-    font-size: 11px;
-}
+    p {
+        font-weight: 800;
+        display: inline-block;
+        font-size: 11px;
+    }
 
-span {
-    display: block;
-    font-size: 10px;
-    font-weight: 700;
-    opacity: 0.5;
-    right: 0;
-}
+    span {
+        display: block;
+        font-size: 10px;
+        font-weight: 700;
+        opacity: 0.5;
+        right: 0;
+    }
 `;
 
 const MainWrapper = styled.div`
@@ -46,11 +47,16 @@ const MainWrapper = styled.div`
     cursor: pointer;
     transition: all ease 0.2s;
     position: relative;
+    z-index: 1;
 
-&:hover ${Info} {
-    top: 0;
-    transition: all ease 0.4s;
-}
+    ${smallerThan.tablet`
+        width: 100%;
+    `};
+
+    &:hover ${Info} {
+        top: 0;
+        transition: all ease 0.4s;
+    }
 `;
 
 const BadgesWrapper = styled.div`
@@ -77,24 +83,25 @@ const NewBadge = styled.div`
     align-items: center;
     justify-content: center;
 
-span {
-    margin: 0;
-    padding: 0;
-}
+    span {
+        margin: 0;
+        padding: 0;
+    }
 `;
 
 const ImgWrapper = styled.div`
     position: relative;
     border: 0.5px solid #bababa;
-`;
 
-const BackgroundImg = styled.div`
-    position: absolute;
-    bottom: 5px;
-    right: 5px;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
+    div {
+        height: 200px;
+    }
+
+    ${smallerThan.tablet`
+        div {
+            height: 300px;
+        }
+    `};
 `;
 
 const ProjectThumbnail = (props) => {
@@ -115,8 +122,7 @@ const ProjectThumbnail = (props) => {
                 {indevelopment ? <NewBadge><span>🚧</span></NewBadge> : null}
             </BadgesWrapper>
             <ImgWrapper>
-                <Img style={{height: '200px'}} fluid={mainImage} />
-                <BackgroundImg />
+                <Img fluid={mainImage} />
             </ImgWrapper>
             <Info>
                 <p>## {title}</p>
