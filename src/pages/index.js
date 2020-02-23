@@ -225,13 +225,6 @@ class index extends Component {
                                             bg="black" 
                                             to="/projects/" 
                                         ><li>projects</li></AniLink>
-                                        <AniLink 
-                                            cover
-                                            direction="down"
-                                            duration={1}
-                                            bg="black" 
-                                            to="/resources/" 
-                                        ><li>resources</li></AniLink>
                                     </ul>
                                 </NavBarLanding>
                             </InfoRight>

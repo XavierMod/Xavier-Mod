@@ -88,7 +88,6 @@ class NavBar extends Component {
                         <li><Link to='/about/'>about</Link></li>
                         <li><Link to='/blog/'>blog</Link></li>
                         <li><Link to='/projects/'>projects</Link></li>
-                        <li><Link to='/resources/'>resources</Link></li>
                     </ul>
                 </Links>
                 <hr />
