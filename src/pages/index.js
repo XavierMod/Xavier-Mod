@@ -200,7 +200,7 @@ class index extends Component {
                             </InfoLeft>
                             <InfoRight>
                                 <H3 body="Xavier Mod"/>
-                                <span>Front End Developer | UI Developer / Designer | Creative Technologist</span>
+                                <span>(test)Front End Developer | UI Developer / Designer | Creative Technologist</span>
                                 <p>2nd year Digital Design at <a href="/" >Brunel University London</a></p>
                                 <NavBarLanding>
                                     <ul>
