@@ -8,6 +8,7 @@ import XavierModSvg from '../../images/XavierMod.svg';
 import AniLink from "gatsby-plugin-transition-link/AniLink";
 import { sizes, largerThan, smallerThan } from '../Helpers/mediaQueries';
 import ButtonBack from '../Library/ButtonBack';
+import navBarLinks from '../../constants/navbar-links';
 
 const NavBarWrapper = styled.nav`
     margin-top: 40px;
@@ -78,16 +79,19 @@ class NavBar extends Component {
                 <img style={{ width: '50px' }} src={XavierModSvg} />
                 <Links>
                     <ul>
-                        <li><AniLink
-                            cover
-                            to="/"
-                            direction="up"
-                            duration={1}
-                            bg="black" 
-                            >home</AniLink></li>
-                        <li><Link to='/about/'>about</Link></li>
-                        <li><Link to='/blog/'>blog</Link></li>
-                        <li><Link to='/projects/'>projects</Link></li>
+                        {navBarLinks.map((el, ind) => {
+                            if (el.text == 'home') {
+                                return <li><AniLink
+                                cover
+                                to={el.path}
+                                direction="up"
+                                duration={1}
+                                bg="black" 
+                                >{el.text}</AniLink></li>
+                            } else {
+                                return <li><Link to={el.path}>{el.text}</Link></li>
+                            }
+                        })}
                     </ul>
                 </Links>
                 <hr />

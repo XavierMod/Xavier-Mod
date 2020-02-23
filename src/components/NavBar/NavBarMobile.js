@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import { sizes, largerThan, smallerThan } from '../Helpers/mediaQueries';
 import {Link} from 'gatsby'
+import navBarLinks from '../../constants/navbar-links';
+import AniLink from "gatsby-plugin-transition-link/AniLink";
 
 const NavBarMobileWrapper = styled.div`
     right: 0;
@@ -70,12 +72,19 @@ class NavBarMobile extends Component {
                 <MenuIcon onClick={() => this.activateNavBar()}>{this.chooseIcon()}</MenuIcon>
                 <Links style={this.state.navBarActive ? {display: 'block'} : {display: 'none'}}>
                     <ul>
-                        <li><Link
-                            to="/"
-                            >home</Link></li>
-                        <li><Link to='/about/'>about</Link></li>
-                        <li><Link to='/blog/'>blog</Link></li>
-                        <li><Link to='/projects/'>projects</Link></li>
+                    {navBarLinks.map((el, ind) => {
+                            if (el.text == 'home') {
+                                return <li><AniLink
+                                cover
+                                to={el.path}
+                                direction="up"
+                                duration={1}
+                                bg="black" 
+                                >{el.text}</AniLink></li>
+                            } else {
+                                return <li><Link to={el.path}>{el.text}</Link></li>
+                            }
+                        })}
                     </ul>
                 </Links>
             </NavBarMobileWrapper>

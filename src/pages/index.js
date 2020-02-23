@@ -10,6 +10,7 @@ import {Link} from 'gatsby'
 import H3 from '../components/Library/Style/H3';
 import AniLink from "gatsby-plugin-transition-link/AniLink";
 import { sizes, largerThan, smallerThan } from '../components/Helpers/mediaQueries';
+import navBarLinks from '../constants/navbar-links';
 
 const LandingContent = styled.div`
     overflow: hidden;
@@ -200,31 +201,23 @@ class index extends Component {
                             </InfoLeft>
                             <InfoRight>
                                 <H3 body="Xavier Mod"/>
-                                <span>(TEST)Front End Developer | UI Developer / Designer | Creative Technologist</span>
+                                <span>Front End Developer | UI Developer / Designer | Creative Technologist</span>
                                 <p>2nd year Digital Design at <a href="/" >Brunel University London</a></p>
                                 <NavBarLanding>
                                     <ul>
-                                        <AniLink 
-                                            cover
-                                            direction="down"
-                                            duration={1}
-                                            bg="black" 
-                                            to="/blog/" 
-                                        ><li>blog</li></AniLink>
-                                        <AniLink 
-                                            cover
-                                            direction="down"
-                                            duration={1}
-                                            bg="black" 
-                                            to="/about/" 
-                                        ><li>about</li></AniLink>
-                                        <AniLink 
-                                            cover
-                                            direction="down"
-                                            duration={1}
-                                            bg="black" 
-                                            to="/projects/" 
-                                        ><li>projects</li></AniLink>
+                                        {navBarLinks.map((el, ind) => {
+                                            if (el.text == 'home') {
+                                                return null;
+                                            } else {
+                                                return <AniLink 
+                                                cover
+                                                direction="down"
+                                                duration={1}
+                                                bg="black" 
+                                                to={el.path} 
+                                            ><li>{el.text}</li></AniLink>
+                                            }
+                                        })}
                                     </ul>
                                 </NavBarLanding>
                             </InfoRight>

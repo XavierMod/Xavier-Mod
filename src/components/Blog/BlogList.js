@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import BlogThumbnail from './BlogThumbnail'
+import BlogPagination from './BlogPagination'
 
 class BlogList extends Component {
 
@@ -13,7 +14,9 @@ class BlogList extends Component {
         })
     }
 
+
     render() {
+        console.log(this.state)
         return (
             <>
             {this.state.posts.map((el, ind) => {
@@ -23,6 +26,7 @@ class BlogList extends Component {
                     
                     />)
             })}
+            <BlogPagination />
             </>
         )
     }
