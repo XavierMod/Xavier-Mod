@@ -10,6 +10,7 @@ import Footer from '../components/Footer/Footer'
 import { TITLE_BLOG, DESCRIPTION_BLOG, H1_BLOG, H2_BLOG, BOLD } from '../styles/BlogStyles';
 import { getReadTime } from '../functions/getReadTime';
 import { Link } from 'gatsby';
+import SEO from '../components/SEO';
 
 const FixedDiv = styled.div`
     position: fixed;
@@ -110,6 +111,7 @@ const blogPostTemplate = ({data}) => {
 
     return (
         <TemplateWrapper>
+            <SEO title={title} />
             <FixedDiv>
                 <ButtonBack route="/blog" direction="right" rotation="rotate(180deg)"/>
                 <Header />

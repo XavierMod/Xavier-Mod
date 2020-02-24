@@ -11,6 +11,7 @@ import H3 from '../components/Library/Style/H3';
 import AniLink from "gatsby-plugin-transition-link/AniLink";
 import { sizes, largerThan, smallerThan } from '../components/Helpers/mediaQueries';
 import navBarLinks from '../constants/navbar-links';
+import SEO from '../components/SEO';
 
 const LandingContent = styled.div`
     overflow: hidden;
@@ -178,6 +179,7 @@ class index extends Component {
 
             return (
                 <React.Fragment>
+                    <SEO title="Home" description="Xavier Mod's Landing page." />
                 <ClapWrapper><Clap /></ClapWrapper>
                 <Cursor />
                 <LandingContent>

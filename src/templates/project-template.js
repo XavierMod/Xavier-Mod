@@ -6,6 +6,7 @@ import Img from 'gatsby-image';
 import H3 from '../components/Library/Style/H3'
 import Footer from '../components/Footer/Footer'
 import ButtonBack from '../components/Library/ButtonBack'
+import SEO from '../components/SEO';
 
 const Background = styled.div`
     background-color: #ffffff;
@@ -94,6 +95,7 @@ const projectTemplate = ({data}) => {
 
     return (
         <React.Fragment>  
+            <SEO title={title} />
             <ButtonBack route="/projects" direction="right" rotation="rotate(180deg)"/>
             <Header />
             <MainWrapper>

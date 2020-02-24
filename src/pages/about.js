@@ -3,6 +3,7 @@ import Layout from '../components/Layout/Layout'
 import ChatFeature from '../components/About/ChatFeature/ChatFeature'
 import DefaultAbout from '../components/About/DefaultAbout';
 import styled from 'styled-components';
+import SEO from '../components/SEO';
 
 const ChangeView = styled.div`
     text-align: right;
@@ -34,6 +35,7 @@ class About extends Component {
 
         return (
             <Layout>
+                <SEO title="Alog" />
                 <ChangeView><span onClick={switchViews}>Switch views</span></ChangeView>
                 {this.state.defaultView ? <DefaultAbout /> : <ChatFeature />}
             </Layout>
