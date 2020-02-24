@@ -28,10 +28,8 @@ const MainWrapper = styled.div`
     `};
 `;
 
-const ImageThumbnail = styled.img`
-    object-fit: cover;
-    width: 100%;
-    height: 250px;
+const ImageThumbnail = styled.div`
+    border: 0.5px solid grey;
 `;
 
 const Info = styled.div`
@@ -73,7 +71,7 @@ const BlogThumbnail = (props) => {
     return (
         <MainWrapper>
             <Link to={"/blog/" + slug}>
-                <Img style={{height: '290px', filter: 'grayscale(100%)'}} fluid={fluid}/>
+                <ImageThumbnail><Img style={{height: '290px', filter: 'grayscale(100%)'}} fluid={fluid}/></ImageThumbnail>
                 <Info>
                     <SubHeading>
                         <InfoTime>{date}</InfoTime>
