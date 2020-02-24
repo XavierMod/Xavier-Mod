@@ -49,7 +49,7 @@ class ProjectList extends Component {
                     <H3 body="front end projects" />
                     <p>My top priority projects. </p>
                     {this.state.projects.map((el, ind) => {
-                        if (el.node.type == 'Front-End Development' && el.node.featuredProject !== true) {
+                        if (el.node.type == 'Front-End Development' && el.node.featuredProject !== true && el.node.agedWarning == false) {
                             return (
                                 <Link
                                     to={'projects/' + el.node.slug}
@@ -66,6 +66,38 @@ class ProjectList extends Component {
                     <p>I have been a UI Designer +3 years and worked in professional projects. </p>
                     {this.state.projects.map((el, ind) => {
                         if (el.node.type == 'UI Design' && el.node.featuredProject !== true) {
+                            return (
+                                <Link
+                                    to={'projects/' + el.node.slug}
+                                >
+                                    <ProjectThumbnail
+                                        project={el.node}
+                                    />
+                                </Link>)
+                        }
+                    })}
+                </ProjectsBlock>
+                <ProjectsBlock>
+                    <H3 body="OUTDATED Front End Projects" />
+                    <p>Front End projects that have now become outdated because my coding skills have gone a bit better and now I use other frameworks, etc. </p>
+                    {this.state.projects.map((el, ind) => {
+                        if (el.node.agedWarning) {
+                            return (
+                                <Link
+                                    to={'projects/' + el.node.slug}
+                                >
+                                    <ProjectThumbnail
+                                        project={el.node}
+                                    />
+                                </Link>)
+                        }
+                    })}
+                </ProjectsBlock>
+                <ProjectsBlock>
+                    <H3 body="Other projects" />
+                    <p>Other digital areas I don't specialise in but I still enjoy! </p>
+                    {this.state.projects.map((el, ind) => {
+                        if (el.node.type !== 'UI Design' && el.node.type !== 'Front-End Development') {
                             return (
                                 <Link
                                     to={'projects/' + el.node.slug}
