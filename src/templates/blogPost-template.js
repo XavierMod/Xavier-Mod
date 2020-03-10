@@ -6,9 +6,7 @@ import styled from 'styled-components'
 import Header from '../components/Layout/Header';
 import ButtonBack from '../components/Library/ButtonBack'
 import Img from 'gatsby-image'
-import Footer from '../components/Footer/Footer'
-import { TITLE_BLOG, DESCRIPTION_BLOG, H1_BLOG, H2_BLOG, BOLD } from '../styles/BlogStyles';
-import { getReadTime } from '../functions/getReadTime';
+import { TITLE_BLOG, DESCRIPTION_BLOG, H1_BLOG, H2_BLOG, H3_BLOG, BOLD, UL_BLOG } from '../styles/BlogStyles';
 import { Link } from 'gatsby';
 import SEO from '../components/SEO';
 
@@ -98,7 +96,20 @@ const options = {
         "heading-2":(node) => {
             return (
             <H2_BLOG>{node.content[0].value}</H2_BLOG>)
-       }
+       },
+       "heading-3":(node) => {
+           return (
+           <H3_BLOG>{node.content[0].value}</H3_BLOG>)
+      },
+      "unordered-list":(node) => {
+        return (
+            <UL_BLOG>
+                {node.content.map((el, ind, arr) => {
+                    return <li>{el.content[0].content[0].value}</li>
+                })}
+            </UL_BLOG>
+        )
+      }
     },
 
     renderMark: {
@@ -108,6 +119,8 @@ const options = {
 
 const blogPostTemplate = ({data}) => {
     const {title, date, description, image, body:{json}} = data.post
+
+    console.log(data.post.body.json.content[4].content[0].content[0].content[0].value)
 
     return (
         <TemplateWrapper>
@@ -120,7 +133,6 @@ const blogPostTemplate = ({data}) => {
             <ArticleWrapper>
                 <Title>                
                     <TITLE_BLOG>{title}</TITLE_BLOG>
-                    <ReadTime>{getReadTime()}</ReadTime>
                 </Title>
                 <DESCRIPTION_BLOG>{description}</DESCRIPTION_BLOG>
                 {documentToReactComponents(json, options)}
