@@ -100,9 +100,7 @@ const options = {
 }
 
 const blogPostTemplate = ({data}) => {
-    const {title, date, description, image, body:{json}} = data.post
-
-    console.log(data.post.body.json.content[4].content[0].content[0].content[0].value)
+    const {title, date, description, image, body:{json}} = data.post;
 
     return (
         <TemplateWrapper>

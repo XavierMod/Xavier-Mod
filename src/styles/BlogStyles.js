@@ -26,12 +26,3 @@ export const H2_BLOG = styled.h2`
 export const BOLD = styled.p`
     font-weight: 700;
 `;
-
-export const UL_BLOG = styled.p`
-    li {
-        list-style-type: disc;
-        margin: 5px 0;
-    }
-    margin: 20px 0;
-`;
-
