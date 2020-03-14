@@ -6,7 +6,7 @@ import styled from 'styled-components'
 import Header from '../components/Layout/Header';
 import ButtonBack from '../components/Library/ButtonBack'
 import Img from 'gatsby-image'
-import { TITLE_BLOG, DESCRIPTION_BLOG, H1_BLOG, H2_BLOG, BOLD, UL_BLOG } from '../styles/BlogStyles';
+import { TITLE_BLOG, DESCRIPTION_BLOG, H1_BLOG, H2_BLOG, BOLD } from '../styles/BlogStyles';
 import { Link } from 'gatsby';
 import SEO from '../components/SEO';
 
@@ -41,11 +41,6 @@ const ArticleWrapper = styled.article`
 const Title = styled.div`
     display: flex;
     align-items: center;
-`;
-
-const ReadTime =styled.span`
-    margin: 0 30px;
-    font-size: 13px;
 `;
 
 const BlogFooter = styled.div`
@@ -96,16 +91,7 @@ const options = {
         "heading-2":(node) => {
             return (
             <H2_BLOG>{node.content[0].value}</H2_BLOG>)
-       },
-      "unordered-list":(node) => {
-        return (
-            <UL_BLOG>
-                {node.content.map((el, ind, arr) => {
-                    return <li>{el.content[0].content[0].value}</li>
-                })}
-            </UL_BLOG>
-        )
-      }
+       }
     },
 
     renderMark: {
