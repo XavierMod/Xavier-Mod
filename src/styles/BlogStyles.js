@@ -23,11 +23,6 @@ export const H2_BLOG = styled.h2`
     margin: 30px 0;
 `;
 
-export const H3_BLOG = styled.h2`
-    font-size: 16px;
-    margin: 30px 0;
-`;
-
 export const BOLD = styled.p`
     font-weight: 700;
 `;

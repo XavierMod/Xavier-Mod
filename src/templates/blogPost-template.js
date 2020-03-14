@@ -6,7 +6,7 @@ import styled from 'styled-components'
 import Header from '../components/Layout/Header';
 import ButtonBack from '../components/Library/ButtonBack'
 import Img from 'gatsby-image'
-import { TITLE_BLOG, DESCRIPTION_BLOG, H1_BLOG, H2_BLOG, H3_BLOG, BOLD, UL_BLOG } from '../styles/BlogStyles';
+import { TITLE_BLOG, DESCRIPTION_BLOG, H1_BLOG, H2_BLOG, BOLD, UL_BLOG } from '../styles/BlogStyles';
 import { Link } from 'gatsby';
 import SEO from '../components/SEO';
 
@@ -97,10 +97,6 @@ const options = {
             return (
             <H2_BLOG>{node.content[0].value}</H2_BLOG>)
        },
-       "heading-3":(node) => {
-           return (
-           <H3_BLOG>{node.content[0].value}</H3_BLOG>)
-      },
       "unordered-list":(node) => {
         return (
             <UL_BLOG>
