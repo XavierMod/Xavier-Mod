@@ -16,6 +16,36 @@ const getDefaultImage = graphql`
     }
 `;
 
+const Info = styled.div`
+    position: absolute;
+    width: 100%;
+    background: black;
+    opacity: 0;
+    z-index: 100;
+    transition: all ease 0.4s;
+    color: white;
+    font-family: 'Noto Serif KR';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+        opacity: 0.8;
+    }
+
+    p {
+        font-weight: 800;
+        font-size: 11px;
+    }
+
+    span {
+        font-size: 10px;
+        font-weight: 700;
+        opacity: 0.5;
+        right: 0;
+    }
+`;
+
 const MainWrapper = styled.div`
     width: 300px;
     margin: 30px;
@@ -78,36 +108,6 @@ const ImgWrapper = styled.div`
             height: 300px;
         }
     `};
-`;
-
-const Info = styled.div`
-    position: absolute;
-    width: 100%;
-    background: black;
-    opacity: 0;
-    z-index: 100;
-    transition: all ease 0.4s;
-    color: white;
-    font-family: 'Noto Serif KR';
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    &:hover {
-        opacity: 0.8;
-    }
-
-    p {
-        font-weight: 800;
-        font-size: 11px;
-    }
-
-    span {
-        font-size: 10px;
-        font-weight: 700;
-        opacity: 0.5;
-        right: 0;
-    }
 `;
 
 const ProjectThumbnail = (props) => {
