@@ -18,6 +18,20 @@ const FixedDiv = styled.div`
     background-color: #121212;
 `;
 
+const MB = styled.div`
+    position: absolute;
+    font-family: 'DM Serif Display' ;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+`;
+
+
+
 const TemplateWrapper = styled.div`
     font-family: 'Noto Serif KR';
     p {
@@ -102,6 +116,7 @@ const blogPostTemplate = ({data}) => {
             <SEO title={title} />
             <FixedDiv>
                 <ButtonBack route="/blog" direction="right" rotation="rotate(180deg)"/>
+                <MB>Mod's blog.</MB>
             </FixedDiv>
             <Img style={{height: '400px'}} fluid={image.fluid} />
             <ArticleWrapper>

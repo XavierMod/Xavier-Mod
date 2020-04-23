@@ -28,6 +28,7 @@ const MainWrapper = styled.div`
 
     ${smallerThan.tablet`
         width: 90%;
+        margin: 30px 0;
     `};
 `;
 

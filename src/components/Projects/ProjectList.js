@@ -3,12 +3,19 @@ import ProjectThumbnail from './ProjectThumbnail'
 import styled from 'styled-components'
 import H3 from '../Library/Style/H3'
 import {Link} from 'gatsby'
+import { sizes, largerThan, smallerThan } from '../Helpers/mediaQueries';
+
+const PaddingTop = styled.div`
+    ${smallerThan.tablet`
+        padding-top: 60px;
+    `};
+`;
 
 const ProjectsBlock = styled.div`
         text-align: center;
         margin-bottom: 100px;
         padding-top: 60px;
-        
+
         h1, p {
             font-family: 'Menlo', 'Monaco', 'Courier New', Courier, monospace;
             text-align: center;
@@ -33,6 +40,7 @@ class ProjectList extends Component {
     render() {
         return (
             <React.Fragment>
+                <PaddingTop />
                 <ProjectsBlock>
                     <H3 body="⭐ Featured projects" />
                     {this.state.projects.map((el, ind) => {
