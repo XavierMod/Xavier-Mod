@@ -15,6 +15,7 @@ import SEO from '../components/SEO';
 import Layout from '../components/Layout/Layout';
 import NavBar from '../components/NavBar/NavBar';
 import socialLinks from '../constants/social-links';
+import {WordReveal} from 'react-text-reveal';
 
 const LandingContent = styled.div`
     font-family: 'Noto Serif KR';
@@ -32,6 +33,8 @@ const LandingContent = styled.div`
         margin: 70px 0;
         font-weight: 700;
         letter-spacing: -3px;
+        -webkit-animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+	        animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
 
         ${smallerThan.tablet`
             font-size: 25px;
@@ -88,6 +91,8 @@ const Code = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    -webkit-animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+	        animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
 
     ${smallerThan.tablet`
             font-size: 15px;
