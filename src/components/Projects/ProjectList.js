@@ -8,6 +8,7 @@ const ProjectsBlock = styled.div`
         text-align: center;
         margin-bottom: 100px;
         padding-top: 60px;
+        
         h1, p {
             font-family: 'Menlo', 'Monaco', 'Courier New', Courier, monospace;
             text-align: center;
@@ -33,8 +34,7 @@ class ProjectList extends Component {
         return (
             <React.Fragment>
                 <ProjectsBlock>
-                    <H3 body="Featured projects" />
-                    <p>my favourite front-end dev projects. </p>
+                    <H3 body="⭐ Featured projects" />
                     {this.state.projects.map((el, ind) => {
                         if (el.node.featuredProject == true) {
                             return (

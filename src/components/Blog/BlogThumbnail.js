@@ -23,6 +23,7 @@ const MainWrapper = styled.div`
 
     ${smallerThan.tablet`
         margin: 60px auto;
+        padding: 10px;
     `};
 `;
 
@@ -36,7 +37,7 @@ const Info = styled.div`
         line-height: 70px;
 
         ${smallerThan.tablet`
-            font-size: 20px;
+            font-size: 30px;
             line-height: 30px;
         `};
     }
@@ -52,7 +53,7 @@ const InfoTime = styled.div`
     display: inline-block;
 
     ${smallerThan.tablet`
-         font-size: 13px;
+         font-size: 20px;
     `};
 `;
 
@@ -76,7 +77,7 @@ const BlogThumbnail = (props) => {
                     <SubHeading>
                         <InfoTime>{date}</InfoTime>
                     </SubHeading>
-                    <h1>Lorem ipsum durare seda seas itun mundo</h1>
+                        <h1>{title}</h1>
                     <ShortDescription>
                         <p>{description}</p>
                     </ShortDescription>

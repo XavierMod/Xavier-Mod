@@ -43,14 +43,13 @@ const BadgesWrapper = styled.div`
 `;
 
 const NewBadge = styled.div`
-    background-color: white;
-    width: 35px;
+    background-color: #9826fc;
     height: 35px;
-    margin: 2px;
-    border-radius: 400px;
-    font-size: 10px;
+    margin: 10px;
+    border-radius: 2px;
+    padding: 0 10px;
+    font-size: 12px;
     font-weight: 700;
-    transform: scale(0.8);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -136,8 +135,7 @@ const ProjectThumbnail = (props) => {
     return (
         <MainWrapper>
             <BadgesWrapper>
-                {featuredProject ? <NewBadge><span>⭐</span></NewBadge> : null}
-                {indevelopment ? <NewBadge><span>🚧</span></NewBadge> : null}
+                {indevelopment ? <NewBadge><span>Coming soon</span></NewBadge> : null}
             </BadgesWrapper>
             <ImgWrapper>
                 <Img fluid={mainImage} />
