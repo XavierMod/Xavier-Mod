@@ -25,6 +25,11 @@ const getProjects = graphql`
             title
             type
             client
+            liveDemo
+            gitHubLink
+            description {
+                description
+            }
             indevelopment
             featuredProject
             date

@@ -16,36 +16,6 @@ const getDefaultImage = graphql`
     }
 `;
 
-const Info = styled.div`
-    position: absolute;
-    width: 100%;
-    background: black;
-    opacity: 0;
-    z-index: 100;
-    transition: all ease 0.4s;
-    color: white;
-    font-family: 'Noto Serif KR';
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    &:hover {
-        opacity: 0.8;
-    }
-
-    p {
-        font-weight: 800;
-        font-size: 11px;
-    }
-
-    span {
-        font-size: 10px;
-        font-weight: 700;
-        opacity: 0.5;
-        right: 0;
-    }
-`;
-
 const MainWrapper = styled.div`
     width: 300px;
     margin: 30px;
@@ -59,11 +29,6 @@ const MainWrapper = styled.div`
     ${smallerThan.tablet`
         width: 90%;
     `};
-
-    &:hover ${Info} {
-        top: 0;
-        transition: all ease 0.4s;
-    }
 `;
 
 const BadgesWrapper = styled.div`
@@ -110,16 +75,63 @@ const ImgWrapper = styled.div`
     `};
 `;
 
+const Info = styled.div`
+    color: white;
+
+    h1 {
+        margin: 20px 0;
+        font-size: 15px !important;
+        font-weight: 700 !important;
+    }
+
+    p {
+        line-height: 17px;
+        opacity: 0.7;
+        margin-bottom: 20px;
+        font-family: sans-serif !important;
+        font-size: 14px !important;
+    }
+`;
+
+const Buttons = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    a {
+        border: 1px solid white;
+        padding: 15px;
+        margin: 5px;
+        font-family: 'Noto Serif KR';
+        font-size: 14px;
+        color: white;
+        text-decoration: none;
+
+        &:hover {
+            background-color: white;
+            color: black;
+        }
+
+        &.no-active {
+            pointer-events: none;
+            cursor: none;
+            background-color: grey;
+            opacity: 0.5;
+            border: 1px solid grey;
+        }
+    }
+`;
+
 const ProjectThumbnail = (props) => {
 
     const data = useStaticQuery(getDefaultImage);
     const defaultIMG = data.file.childImageSharp.fluid;
 
-    const {title, type, featuredImage, date, indevelopment, featuredProject} = props.project;
+    const {title, type, featuredImage, date, indevelopment, featuredProject, description, gitHubLink, liveDemo} = props.project;
 
     let mainImage = featuredImage === null ? defaultIMG : featuredImage.fluid;
 
-    console.log(featuredImage);
+    console.log(props);
 
     return (
         <MainWrapper>
@@ -128,11 +140,16 @@ const ProjectThumbnail = (props) => {
                 {indevelopment ? <NewBadge><span>🚧</span></NewBadge> : null}
             </BadgesWrapper>
             <ImgWrapper>
-                <Info>
-                    <p>{title}</p>
-                </Info>
                 <Img fluid={mainImage} />
             </ImgWrapper>
+            <Info>
+                <h1>{title}</h1>
+                <p>{description.description}</p>
+                <Buttons>
+                    <a target="_blank" href={gitHubLink} className={gitHubLink !== null ? "" : "no-active"} >Github</a>
+                    <a target="_blank" href={liveDemo} className={gitHubLink !== null ? "" : "no-active"}>Live Demo</a>
+                </Buttons>
+            </Info>
         </MainWrapper>
     )
 }

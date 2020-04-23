@@ -9,9 +9,10 @@ const ProjectsBlock = styled.div`
         margin-bottom: 100px;
         padding-top: 60px;
         h1, p {
+            font-family: 'Menlo', 'Monaco', 'Courier New', Courier, monospace;
             text-align: center;
-            font-family: 'Noto Serif KR';
             font-size: 30px;
+            letter-spacing: -0.3px;
         }
 
         p {
@@ -37,13 +38,10 @@ class ProjectList extends Component {
                     {this.state.projects.map((el, ind) => {
                         if (el.node.featuredProject == true) {
                             return (
-                                <Link
-                                    to={'projects/' + el.node.slug}
-                                >
                                     <ProjectThumbnail
                                         project={el.node}
                                     />
-                                </Link>)
+                                )
                         }
                     })}
                 </ProjectsBlock>
@@ -53,13 +51,10 @@ class ProjectList extends Component {
                     {this.state.projects.map((el, ind) => {
                         if (el.node.type == 'Front-End Development' && el.node.featuredProject !== true && el.node.agedWarning == null) {
                             return (
-                                <Link
-                                    to={'projects/' + el.node.slug}
-                                >
                                     <ProjectThumbnail
                                         project={el.node}
                                     />
-                                </Link>)
+                                )
                         }
                     })}
                 </ProjectsBlock>
@@ -69,13 +64,10 @@ class ProjectList extends Component {
                     {this.state.projects.map((el, ind) => {
                         if (el.node.type == 'UI Design' && el.node.featuredProject !== true) {
                             return (
-                                <Link
-                                    to={'projects/' + el.node.slug}
-                                >
                                     <ProjectThumbnail
                                         project={el.node}
                                     />
-                                </Link>)
+                                )
                         }
                     })}
                 </ProjectsBlock>
