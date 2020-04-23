@@ -79,13 +79,14 @@ const NavBarMenu = styled.div`
 const Links = styled.div`
     text-align: right;
     padding: 30px;
+    
 
     a {
         color: white;
         display: block;
         text-decoration: none;
         font-size: 14px;
-        font-family: 'Noto Serif KR';
+        font-family: 'DM Serif Display';
         font-size: 50px;
         margin: 60px 0;
     }
@@ -96,7 +97,7 @@ const Links = styled.div`
         color: black;
 
         a {
-            opacity: 0.5;
+            opacity: 0.6;
             transition: all ease .5s;
 
             &:hover {
