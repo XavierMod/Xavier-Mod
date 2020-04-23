@@ -147,7 +147,7 @@ const ProjectThumbnail = (props) => {
                 <p>{description.description}</p>
                 <Buttons>
                     <a target="_blank" href={gitHubLink} className={gitHubLink !== null ? "" : "no-active"} >Github</a>
-                    <a target="_blank" href={liveDemo} className={gitHubLink !== null ? "" : "no-active"}>Live Demo</a>
+                    <a target="_blank" href={liveDemo} className={liveDemo !== null ? "" : "no-active"}>Live Demo</a>
                 </Buttons>
             </Info>
         </MainWrapper>
