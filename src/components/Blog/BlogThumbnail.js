@@ -5,17 +5,16 @@ import {Link} from 'gatsby'
 import { sizes, largerThan, smallerThan } from '../Helpers/mediaQueries';
 
 const MainWrapper = styled.div`
-    background: white;
-    width: 100%;
+    max-width: 600px;
+    margin: auto;
     position: relative;
-    overflow: hidden;
     cursor: pointer;
     margin-bottom: 100px;
-    z-index: 100;
+    padding: 30px;
 
     a {
         text-decoration: none;
-        color: black;
+        color: white;
     }
 
     p {
@@ -23,47 +22,49 @@ const MainWrapper = styled.div`
     }
 
     ${smallerThan.tablet`
-        width: 100%;
         margin: 60px auto;
     `};
-`;
-
-const ImageThumbnail = styled.div`
-    border: 0.5px solid grey;
 `;
 
 const Info = styled.div`
     h1 {
         font-weight: 500;
-        font-size: 22px;
+        display: block;
+        font-size: 50px;
+        margin: 20px 0;
         font-family: 'DM Serif Display';
+        line-height: 70px;
+
+        ${smallerThan.tablet`
+            font-size: 20px;
+            line-height: 30px;
+        `};
     }
 `;
 
 const SubHeading = styled.div`
-    align-items: center;
-    justify-content: center;
     margin: 5px 0;
     opacity: 0.4;
 `;
 
 const InfoTime = styled.div`
-    font-size: 10px;
+    font-size: 20px;
     display: inline-block;
-`;
 
-const Length = styled.div`
-    display: inline-block;
-    font-size: 10px;
-    text-align: left;
-    margin-left: 20px;
+    ${smallerThan.tablet`
+         font-size: 13px;
+    `};
 `;
 
 const ShortDescription = styled.div`
-    font-size: 13px;
+    font-size: 20px;
     line-height: 1.5;
     opacity: 0.5;
     padding-top: 10px;
+
+    ${smallerThan.tablet`
+         font-size: 13px;
+    `};
 `;
 
 const BlogThumbnail = (props) => {
@@ -71,12 +72,11 @@ const BlogThumbnail = (props) => {
     return (
         <MainWrapper>
             <Link to={"/blog/" + slug}>
-                <ImageThumbnail><Img style={{height: '290px', filter: 'grayscale(100%)'}} fluid={fluid}/></ImageThumbnail>
                 <Info>
                     <SubHeading>
                         <InfoTime>{date}</InfoTime>
                     </SubHeading>
-                    <h1>{title}</h1>
+                    <h1>Lorem ipsum durare seda seas itun mundo</h1>
                     <ShortDescription>
                         <p>{description}</p>
                     </ShortDescription>

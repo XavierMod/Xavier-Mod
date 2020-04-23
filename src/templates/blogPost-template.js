@@ -14,6 +14,8 @@ const FixedDiv = styled.div`
     position: fixed;
     width: 100%;
     z-index: 100;
+    height: 70px;
+    background-color: #121212;
 `;
 
 const TemplateWrapper = styled.div`
@@ -66,16 +68,9 @@ const BlogFooter = styled.div`
     }
 `;
 
-const BackButton = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    flex: 2;
-`;
-
 const Signature = styled.div`
-    flex: 7;
-    text-align: right;
+    flex: 10;
+    text-align: left;
     font-size: 11px;
 `;
 
@@ -107,7 +102,6 @@ const blogPostTemplate = ({data}) => {
             <SEO title={title} />
             <FixedDiv>
                 <ButtonBack route="/blog" direction="right" rotation="rotate(180deg)"/>
-                <Header />
             </FixedDiv>
             <Img style={{height: '400px'}} fluid={image.fluid} />
             <ArticleWrapper>
@@ -117,11 +111,6 @@ const blogPostTemplate = ({data}) => {
                 <DESCRIPTION_BLOG>{description}</DESCRIPTION_BLOG>
                 {documentToReactComponents(json, options)}
                 <BlogFooter>
-                    <Link style={{color: 'black', textDecoration: 'none'}} to="/blog/">
-                        <BackButton>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M7.33 24l-2.83-2.829 9.339-9.175-9.339-9.167 2.83-2.829 12.17 11.996z"/></svg><span>BACK TO POSTS</span>
-                        </BackButton>
-                    </Link>
                     <Signature>
                     Xavier Mod. Licensed under a Creative Commons Attribution 4.0 International License
                     </Signature>

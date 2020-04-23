@@ -7,9 +7,11 @@ import {Link} from 'gatsby'
 const ProjectsBlock = styled.div`
         text-align: center;
         margin-bottom: 100px;
-
+        padding-top: 60px;
         h1, p {
-            text-align: left;
+            text-align: center;
+            font-family: 'Noto Serif KR';
+            font-size: 30px;
         }
 
         p {
@@ -30,8 +32,8 @@ class ProjectList extends Component {
         return (
             <React.Fragment>
                 <ProjectsBlock>
-                    <H3 body="featured projects" />
-                    <p>my favourite projects. </p>
+                    <H3 body="Featured projects" />
+                    <p>my favourite front-end dev projects. </p>
                     {this.state.projects.map((el, ind) => {
                         if (el.node.featuredProject == true) {
                             return (
@@ -46,7 +48,7 @@ class ProjectList extends Component {
                     })}
                 </ProjectsBlock>
                 <ProjectsBlock>
-                    <H3 body="front end projects" />
+                    <H3 body="Front-End Projects" />
                     <p>My top priority projects. </p>
                     {this.state.projects.map((el, ind) => {
                         if (el.node.type == 'Front-End Development' && el.node.featuredProject !== true && el.node.agedWarning == null) {
@@ -66,22 +68,6 @@ class ProjectList extends Component {
                     <p>I have been a UI Designer +3 years and worked in professional projects. </p>
                     {this.state.projects.map((el, ind) => {
                         if (el.node.type == 'UI Design' && el.node.featuredProject !== true) {
-                            return (
-                                <Link
-                                    to={'projects/' + el.node.slug}
-                                >
-                                    <ProjectThumbnail
-                                        project={el.node}
-                                    />
-                                </Link>)
-                        }
-                    })}
-                </ProjectsBlock>
-                <ProjectsBlock>
-                    <H3 body="Other projects" />
-                    <p>Other digital areas I don't specialise in but I still enjoy! </p>
-                    {this.state.projects.map((el, ind) => {
-                        if (el.node.type !== 'UI Design' && el.node.type !== 'Front-End Development') {
                             return (
                                 <Link
                                     to={'projects/' + el.node.slug}

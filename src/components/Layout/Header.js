@@ -3,7 +3,6 @@ import XavierModSvg from '../../images/XavierMod.svg'
 import styled from 'styled-components'
 
 const HeaderWrapper = styled.div`
-
     img {
         margin: auto;
         display: block;

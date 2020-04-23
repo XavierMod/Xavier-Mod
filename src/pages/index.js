@@ -12,159 +12,92 @@ import AniLink from "gatsby-plugin-transition-link/AniLink";
 import { sizes, largerThan, smallerThan } from '../components/Helpers/mediaQueries';
 import navBarLinks from '../constants/navbar-links';
 import SEO from '../components/SEO';
+import Layout from '../components/Layout/Layout';
+import NavBar from '../components/NavBar/NavBar';
+import socialLinks from '../constants/social-links';
 
 const LandingContent = styled.div`
-    overflow: hidden;
-    cursor: none;
-    height: 100vh;
-    display: flex;
-
-    ${smallerThan.tablet`
-        display: block;
-        height: auto;
-    `};
-`;
-
-const LeftSection = styled.div`
-    flex: 50%;
-    position: relative;
-`;
-
-const RightSection = styled.div`
-    flex: 50%;
-    position: relative;
-`;
-
-const ClapWrapper = styled.div`
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    padding: 100px;
-
-    ${smallerThan.tablet`
-        display: none;
-    `};
-`;
-
-const LogoWrapper = styled.div`
-    ${smallerThan.tablet`
-        display: block;
-        margin-bottom: 20px;
-    `};
-`;
-
-const ProfilePicWrapper = styled.div`
-    overflow: hidden;
-
-    div {
-        width: 350px;
-    }
-
-    animation-name: Width350;
-    animation-duration: 1.5s;
-    animation-timing-function: ease;
-
-    ${smallerThan.tablet`
-
-        div {
-            width: 100%;
-            height: 300px;
-        }
-    `};
-`;
-
-const NavBarLanding = styled.div`
-    font-size: 20px;
-    padding-top: 100px;
-
-    li {
-        margin: 5px 0;
-    }
-
-    ${smallerThan.tablet`
-        padding: 50px 0;
-        font-size: 22px;
-    `};
-`;
-
-const DecorativeBG = styled.div`
-    background-color: #ffffff;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='30' viewBox='0 0 1000 120'%3E%3Cg fill='none' stroke='%23222' stroke-width='10' %3E%3Cpath d='M-500 75c0 0 125-30 250-30S0 75 0 75s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 45c0 0 125-30 250-30S0 45 0 45s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 105c0 0 125-30 250-30S0 105 0 105s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 15c0 0 125-30 250-30S0 15 0 15s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500-15c0 0 125-30 250-30S0-15 0-15s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 135c0 0 125-30 250-30S0 135 0 135s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3C/g%3E%3C/svg%3E");
-    height: 300px;
-
-    animation-name: WidthFull;
-    animation-duration: 2s;
-    animation-timing-function: ease;
-    animation-delay: 0.5s;
-    animation-fill-mode: backwards;
-
-    ${smallerThan.tablet`
-        display: none;
-    `};
-`;
-
-const FooterLanding = styled.div`
+    font-family: 'Noto Serif KR';
+    letter-spacing: -0.7px;
+    height: 100%;
     position: fixed;
-    bottom: 0;
-    padding: 20px;
-    font-size: 11px;
-    text-transform: uppercase;
-
-    ${smallerThan.tablet`
-        position: static;
-    `};
-`;
-
-const LandingLinks = styled.div`
-    position: absolute;
-    top: 0;
-    right: 0;
-    padding: 80px;
-    text-align: right;
-    font-size: 11px;
-
-    ${smallerThan.tablet`
-        padding: 10px;
-        z-index: 1000px;
-    `};
-`;
-
-const Info = styled.div`
+    width: 100%;
     display: flex;
-    padding-top: 150px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 
-    animation-name: OpacityLeft;
-    animation-duration: 1s;
-    animation-timing-function: ease;
-    animation-delay: 0.5s;
-    animation-fill-mode: backwards;
+    h1 {
+        font-size: 50px;
+        margin: 70px 0;
+        font-weight: 700;
+        letter-spacing: -3px;
 
-    ${smallerThan.tablet`
-        display: block;
-        padding: 30px;
-    `};
-`;
-
-const InfoLeft = styled.div`
-    flex: 10%;
-
-    img {
-        width: 40px;
+        ${smallerThan.tablet`
+            font-size: 25px;
+            letter-spacing: -1.5px;
+        `};
     }
-`;
-
-const InfoRight = styled.div`
-    flex: 90%;
-    font-size: 11px;
 
     a {
-        color: black;
+        color: #00ffee;
+        border-bottom: 1px solid  #00ffee;
+        cursor: pointer;
     }
 
-    span {
-        margin-top: -20px;
+    p {
+        font-family: 'Menlo', 'Monaco', 'Courier New', Courier, monospace;
     }
 `;
+
+const SocialMediaLinks = styled.div`
+    display: flex;
+    filter: invert();
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    margin: 20px 0;
+
+    img {
+        height: 100%;
+        margin-right: 10px;
+        width: 15px;
+    }
+
+    a {
+        opacity: 1;
+        cursor: pointer;
+        border-bottom: 0 !important;
+    }
+`;
+
+const SpanResult = styled.span`
+    color: #D88E73;
+`;
+
+const SpanConst = styled.span`
+    color: #3C9DDB;
+`;
+
+const SpanProp = styled.span`
+    color: #89DDFF;
+`;
+
+const Code = styled.div`
+    text-align: left;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    ${smallerThan.tablet`
+            font-size: 15px;
+        `};
+`;
+
+const Property = styled.p`
+    margin-left: 50px;
+`;
+
 
 class index extends Component {
 
@@ -176,57 +109,33 @@ class index extends Component {
         }
 
         render () {
-
             return (
                 <React.Fragment>
+                    <NavBar />
                     <SEO title="Home" description="Xavier Mod's Landing page." />
-                <ClapWrapper><Clap /></ClapWrapper>
-                <Cursor />
                 <LandingContent>
-                    <LeftSection>
-                        <ProfilePicWrapper><ProfilePic /></ProfilePicWrapper>
-                        <LandingLinks>
-                            <a>GET IN TOUCH</a>
+                    <div>
+                    <h1>I build things. And I love it!</h1>
+                        <Code>
                             <div>
-                                <p>LINKEDIN</p>
-                                <p>MAIL</p>
-                                <p>INSTAGRAM</p>
+                            <p><SpanConst>const </SpanConst><SpanProp>xavierMod </SpanProp>
+            = <SpanProp>styled</SpanProp>.<SpanProp>dev</SpanProp>{"`"}</p>
+                            <Property><SpanProp>font-family</SpanProp>:<SpanResult> 'Front End Developer'</SpanResult>;</Property>
+                            <Property><SpanProp>level</SpanProp>:<SpanResult> junior</SpanResult>;</Property>
+                            <Property><SpanProp>position</SpanProp>:<SpanResult> london</SpanResult>;</Property>
+                            <Property><SpanProp>university</SpanProp>:<SpanResult> <a>Brunel University</a></SpanResult>;</Property>
+                            <Property><SpanProp>grad-year</SpanProp>:<SpanResult> 2021</SpanResult>;</Property>
+                            <Property><SpanProp>current-role</SpanProp>:<SpanResult> available-part-time</SpanResult>;</Property>
+                            <p>{"`;"}</p>
                             </div>
-                        </LandingLinks>
-                        <DecorativeBG style={{height: '200px', marginTop: '200px'}} />
-                    </LeftSection>
-                    <RightSection>
-                        <DecorativeBG style={{height: '250px'}} />
-                        <Info>
-                            <InfoLeft>
-                                <LogoWrapper><img src={XavierModSvg} /></LogoWrapper>
-                            </InfoLeft>
-                            <InfoRight>
-                                <H3 body="Xavier Mod"/>
-                                <span>Front End Developer | UI Developer / Designer | Creative Technologist</span>
-                                <p>2nd year Digital Design at <a href="/" >Brunel University London</a></p>
-                                <NavBarLanding>
-                                    <ul>
-                                        {navBarLinks.map((el, ind) => {
-                                            if (el.text == 'home') {
-                                                return null;
-                                            } else {
-                                                return <AniLink 
-                                                cover
-                                                direction="down"
-                                                duration={1}
-                                                bg="black" 
-                                                to={el.path} 
-                                            ><li>{el.text}</li></AniLink>
-                                            }
-                                        })}
-                                    </ul>
-                                </NavBarLanding>
-                            </InfoRight>
-                        </Info>
-                    </RightSection>
+                        </Code>
+                        <SocialMediaLinks>
+                        {socialLinks.map((el, ind) => {
+                            return <a key={ind} href={el.url} target="_blank"><img height="20" width="20" src={el.icon} /></a>
+                        })}
+                        </SocialMediaLinks>
+                    </div>
                 </LandingContent>
-                <FooterLanding>© 2020 by Xavier Mod. All rights reserved. Built with Gatsby.js and Contentful.</FooterLanding>
             </React.Fragment>
         )
     }

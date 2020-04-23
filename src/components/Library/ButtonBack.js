@@ -6,18 +6,20 @@ import { sizes, largerThan, smallerThan } from '../Helpers/mediaQueries';
 
 const SVG = styled.svg`
     transform: ${props => props.rotation};
-    fill: black;
+    fill: white;
+    width: 15px;
+    height: 15px;
 `;
 
 const Back = styled.div`
     position: fixed;
-    padding: 10px;
-    margin: 40px;
+    padding: 5px;
+    margin: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    border: 3px solid black;
+    border: 3px solid white;
     transition: all ease 0.2s;
     z-index: 1000;
     
@@ -28,10 +30,10 @@ const Back = styled.div`
     `};
 
 &:hover {
-    background-color: black;
+    background-color: white;
 
     ${SVG} {
-        fill: white;
+        fill: black;
     }
 }
 `;
