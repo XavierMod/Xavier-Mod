@@ -53,6 +53,31 @@ const LandingContent = styled.div`
     }
 `;
 
+const ViewPosts = styled.p`
+    margin: 40px 10px;
+    color: white;
+    border: 1px solid white;
+    display: inline-block;
+    padding: 15px;
+    position: relative;
+
+    a {
+        width: 100%;
+        height: 100%;
+        border-bottom: 0;
+        color: white;
+        text-decoration: none;
+    }
+
+    &:hover {
+        background-color: white;
+        
+        a {
+            color: black;
+        }
+    }
+`;
+
 const SocialMediaLinks = styled.div`
     display: flex;
     filter: invert();
@@ -134,6 +159,20 @@ class index extends Component {
                             <p>{"`;"}</p>
                             </div>
                         </Code>
+                        <ViewPosts><AniLink
+                                cover
+                                to={"/blog"}
+                                direction="up"
+                                duration={1}
+                                bg="black" 
+                                >                        All Posts</AniLink></ViewPosts>
+                        <ViewPosts><AniLink
+                                cover
+                                to={"/projects"}
+                                direction="up"
+                                duration={1}
+                                bg="black" 
+                                >                        All projects</AniLink></ViewPosts>
                         <SocialMediaLinks>
                         {socialLinks.map((el, ind) => {
                             return <a key={ind} href={el.url} target="_blank"><img height="20" width="20" src={el.icon} /></a>

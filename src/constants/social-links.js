@@ -10,5 +10,10 @@ export default [
         name: 'gmail',
         icon: 'https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/gmail.svg',
         url: 'mailto:hi.xavier.mod@gmail.com?Subject=Hi%20Xavier!'
+    },
+    {
+        name: 'github',
+        icon: 'https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/github.svg',
+        url: 'https://github.com/XavierMod'
     }
 ]

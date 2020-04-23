@@ -9,8 +9,6 @@ const AboutContent = styled.div`
     letter-spacing: -1.3px;
     display: flex;
     margin-bottom: 70px;
-    -webkit-animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
-	        animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
 
     ${smallerThan.tablet`
         display: block;
@@ -20,6 +18,10 @@ const AboutContent = styled.div`
 const Title = styled.div`
     flex: 5;
     font-size: 60px;
+    font-weight: 700;
+
+	-webkit-animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+	        animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
 
     ${smallerThan.tablet`
         font-size: 30px;

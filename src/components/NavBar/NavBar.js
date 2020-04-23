@@ -19,7 +19,6 @@ const NavBarWrapper = styled.nav`
     padding: 25px;
     letter-spacing: -1px;
     background-color: #121212;
-
 `;
 
 const Name = styled.p`
@@ -31,7 +30,7 @@ const Name = styled.p`
 `;
 
 const MenuIcon = styled.div`
-    flex: 1;
+    flex: 0.5;
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -49,7 +48,7 @@ const MenuIcon = styled.div`
 `;
 
 const SocialMediaLinks = styled.div`
-    flex: 1;
+    flex: 1.5;
     display: flex;
     filter: invert();
     align-items: center;
@@ -172,6 +171,11 @@ class NavBar extends Component {
             </NavBarMenu>
             <NavBarWrapper>
                 <Name>xavier mod.</Name>
+                <SocialMediaLinks>
+                        {socialLinks.map((el, ind) => {
+                            return <a key={ind} href={el.url} target="_blank"><img height="20" width="20" src={el.icon} /></a>
+                        })}
+                </SocialMediaLinks>
                 <MenuIcon>
                 <svg onClick={() => this.setState({showMenu: !this.state.showMenu})}  fill="white" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 6h-24v-4h24v4zm0 4h-24v4h24v-4zm0 8h-24v4h24v-4z"/></svg>
                 </MenuIcon>
