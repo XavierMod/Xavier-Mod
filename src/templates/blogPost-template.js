@@ -145,8 +145,6 @@ const options = {
 const blogPostTemplate = ({data}) => {
     const {title, date, description, image, body:{json}} = data.post;
 
-    console.log(window.location.pathname);
-
     return (
         <TemplateWrapper>
             <SEO title={title} />
