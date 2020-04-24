@@ -6,7 +6,7 @@ import styled from 'styled-components'
 import Header from '../components/Layout/Header';
 import ButtonBack from '../components/Library/ButtonBack'
 import Img from 'gatsby-image'
-import { TITLE_BLOG, DESCRIPTION_BLOG, H1_BLOG, H2_BLOG, BOLD } from '../styles/BlogStyles';
+import { TITLE_BLOG, DESCRIPTION_BLOG, H1_BLOG, H2_BLOG, H3_BLOG, BOLD, UL_LI } from '../styles/BlogStyles';
 import { Link } from 'gatsby';
 import SEO from '../components/SEO';
 
@@ -16,6 +16,12 @@ const FixedDiv = styled.div`
     z-index: 100;
     height: 70px;
     background-color: #121212;
+`;
+
+const ImageWrapper = styled.div`
+    padding-top: 90px;
+    max-width: 800px;
+    margin: auto;
 `;
 
 const MB = styled.div`
@@ -34,9 +40,16 @@ const MB = styled.div`
 
 const TemplateWrapper = styled.div`
     font-family: 'Noto Serif KR';
+    letter-spacing: -0.5px;
+    font-size: 20px;
+
     p {
-        font-size: 16px;
-        line-height: 30px;
+        font-size: 20px;
+        line-height: 35px;
+    }
+
+    a {
+        color: #34ebd5;
     }
 `;
 
@@ -59,35 +72,6 @@ const Title = styled.div`
     align-items: center;
 `;
 
-const BlogFooter = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    margin: 30px 0;
-
-    span {
-        font-size: 13px;
-    }
-
-    svg {
-        width: 10px;
-        margin-right: 20px;
-        transform: rotate(180deg)
-    }
-
-    img {
-        flex: 1;
-        object-fit: contain;
-        transform: scale(0.6)
-    }
-`;
-
-const Signature = styled.div`
-    flex: 10;
-    text-align: left;
-    font-size: 11px;
-`;
-
 const options = {
     renderNode: {
         "embedded-asset-block":(node) => {
@@ -100,7 +84,18 @@ const options = {
         "heading-2":(node) => {
             return (
             <H2_BLOG>{node.content[0].value}</H2_BLOG>)
-       }
+       },
+       "heading-3":(node) => {
+        return (
+        <H3_BLOG>{node.content[0].value}</H3_BLOG>)
+        },
+        "unordered-list":(node) => {
+            return node.content.map((el, ind, arr) => {
+                console.log(el.content[0].content[0].value);
+                return (
+                    <UL_LI>{el.content[0].content[0].value}</UL_LI>)
+            })
+        }
     },
 
     renderMark: {
@@ -111,6 +106,8 @@ const options = {
 const blogPostTemplate = ({data}) => {
     const {title, date, description, image, body:{json}} = data.post;
 
+    console.log('POST', data.post);
+
     return (
         <TemplateWrapper>
             <SEO title={title} />
@@ -118,19 +115,15 @@ const blogPostTemplate = ({data}) => {
                 <ButtonBack route="/blog" direction="right" rotation="rotate(180deg)"/>
                 <MB>Mod's blog.</MB>
             </FixedDiv>
-            <Img style={{height: '400px'}} fluid={image.fluid} />
+            <ImageWrapper>
+                <Img style={{height: '400px'}} fluid={image.fluid} />
+            </ImageWrapper>
             <ArticleWrapper>
                 <Title>                
                     <TITLE_BLOG>{title}</TITLE_BLOG>
                 </Title>
                 <DESCRIPTION_BLOG>{description}</DESCRIPTION_BLOG>
                 {documentToReactComponents(json, options)}
-                <BlogFooter>
-                    <Signature>
-                    Xavier Mod. Licensed under a Creative Commons Attribution 4.0 International License
-                    </Signature>
-                    <img height="32" width="32" src="https://unpkg.com/simple-icons@latest/icons/creativecommons.svg" />
-                </BlogFooter>
             </ArticleWrapper>
         </TemplateWrapper>
     )
