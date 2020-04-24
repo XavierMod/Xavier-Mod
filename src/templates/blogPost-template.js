@@ -72,6 +72,45 @@ const Title = styled.div`
     align-items: center;
 `;
 
+const Footer = styled.div`
+    padding-top: 60px;
+    padding-bottom: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+`;
+
+const ButtonBackPosts = styled.a`
+        border: 1px solid white;
+        padding: 10px 20px;
+        margin-right: 20px;
+        color: white !important;
+        text-decoration: none;
+        
+        &:hover {
+            background-color: white;
+            color: black !important;
+            border: 1px solid white;
+            cursor: pointer;
+        }
+`;
+
+const ShareLinks = styled.div`
+    a {
+        border: 0;
+        padding: 0;
+
+        img {
+            width: 25px;
+            padding: 10px;
+            filter: invert();
+            border: 0;
+            box-shadow: 0;
+            display: inline-block;
+        }
+    }
+`;
+
 const options = {
     renderNode: {
         "embedded-asset-block":(node) => {
@@ -106,7 +145,7 @@ const options = {
 const blogPostTemplate = ({data}) => {
     const {title, date, description, image, body:{json}} = data.post;
 
-    console.log('POST', data.post);
+    console.log(window.location.pathname);
 
     return (
         <TemplateWrapper>
@@ -124,6 +163,26 @@ const blogPostTemplate = ({data}) => {
                 </Title>
                 <DESCRIPTION_BLOG>{description}</DESCRIPTION_BLOG>
                 {documentToReactComponents(json, options)}
+                <Footer>
+                    <ButtonBackPosts href="https://xaviermod.com/blog">Back to posts</ButtonBackPosts>
+                    <ShareLinks>
+                    <a href="http://reddit.com/submit?url=https://xaviermod.com&amp;title=Simple Share Buttons" target="_blank">
+                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v2/icons/reddit.svg" alt="Reddit" />
+                    </a>
+                    <a href="mailto:?Subject=Simple Share Buttons&amp;Body=I%20saw%20this%20and%20thought%20of%20you!%20 https://xaviermod.com/">
+                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v2/icons/google.svg" alt="Email" />
+                    </a>
+                    <a href="http://www.facebook.com/sharer.php?u=https://xaviermod.com" target="_blank">
+                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v2/icons/facebook.svg" alt="Facebook" />
+                    </a>
+                    <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=https://xaviermod.com" target="_blank">
+                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v2/icons/linkedin.svg" alt="LinkedIn" />
+                    </a>
+                    <a href="https://twitter.com/share?url=https://xaviermod.com" target="_blank">
+                         <img src="https://cdn.jsdelivr.net/npm/simple-icons@v2/icons/twitter.svg" alt="Twitter" />
+                     </a>
+                    </ShareLinks>
+                </Footer>
             </ArticleWrapper>
         </TemplateWrapper>
     )
