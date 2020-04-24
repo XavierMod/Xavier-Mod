@@ -28,6 +28,10 @@ const LandingContent = styled.div`
     justify-content: center;
     text-align: center;
 
+    ${smallerThan.tablet`
+        padding-top: 40px;
+    `};
+
     h1 {
         font-size: 50px;
         margin: 70px 0;

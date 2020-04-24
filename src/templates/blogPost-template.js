@@ -130,7 +130,6 @@ const options = {
         },
         "unordered-list":(node) => {
             return node.content.map((el, ind, arr) => {
-                console.log(el.content[0].content[0].value);
                 return (
                     <UL_LI>{el.content[0].content[0].value}</UL_LI>)
             })
@@ -138,12 +137,14 @@ const options = {
     },
 
     renderMark: {
-        [MARKS.BOLD]: text => <BOLD>{text}</BOLD>,
+        [MARKS.BOLD]: text => <BOLD>{text}</BOLD>    
     },
 }
 
 const blogPostTemplate = ({data}) => {
     const {title, date, description, image, body:{json}} = data.post;
+
+    console.log(data.post);
 
     return (
         <TemplateWrapper>
