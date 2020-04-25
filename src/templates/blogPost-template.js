@@ -9,6 +9,7 @@ import Img from 'gatsby-image'
 import { TITLE_BLOG, DESCRIPTION_BLOG, H1_BLOG, H2_BLOG, H3_BLOG, BOLD, UL_LI } from '../styles/BlogStyles';
 import { Link } from 'gatsby';
 import SEO from '../components/SEO';
+import { sizes, largerThan, smallerThan } from '../components/Helpers/mediaQueries';
 
 const FixedDiv = styled.div`
     position: fixed;
@@ -78,6 +79,10 @@ const Footer = styled.div`
     display: flex;
     align-items: center;
     justify-content: flex-start;
+
+    ${smallerThan.tablet`
+        display: block;
+    `};
 `;
 
 const ButtonBackPosts = styled.a`

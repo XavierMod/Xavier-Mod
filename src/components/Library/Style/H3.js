@@ -5,7 +5,8 @@ const H3Wrapper = styled.h1`
     font-size: 11px;
     font-weight: 700;
     margin-bottom: 20px;
-    letter-spacing: -0.7px;
+    font-family: 'DM Serif Display' !important;
+    letter-spacing: -0.2px !important;
 `;
 
 const H3 = (props) => {

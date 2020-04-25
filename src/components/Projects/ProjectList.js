@@ -5,11 +5,6 @@ import H3 from '../Library/Style/H3'
 import {Link} from 'gatsby'
 import { sizes, largerThan, smallerThan } from '../Helpers/mediaQueries';
 
-const PaddingTop = styled.div`
-    ${smallerThan.tablet`
-        padding-top: 60px;
-    `};
-`;
 
 const ProjectsBlock = styled.div`
         text-align: center;
@@ -40,9 +35,8 @@ class ProjectList extends Component {
     render() {
         return (
             <React.Fragment>
-                <PaddingTop />
                 <ProjectsBlock>
-                    <H3 body="⭐ Featured projects" />
+                    <H3 body="Featured projects" />
                     {this.state.projects.map((el, ind) => {
                         if (el.node.featuredProject == true) {
                             return (

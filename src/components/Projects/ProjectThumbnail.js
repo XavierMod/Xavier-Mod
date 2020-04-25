@@ -106,10 +106,18 @@ const Buttons = styled.div`
         font-size: 14px;
         color: white;
         text-decoration: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
 
         &:hover {
             background-color: white;
             color: black;
+
+            img {
+                filter: none;
+
+            }
         }
 
         &.no-active {
@@ -119,6 +127,11 @@ const Buttons = styled.div`
             opacity: 0.5;
             border: 1px solid grey;
         }
+    }
+
+    img {
+        width: 25px;
+        filter: invert();
     }
 `;
 
@@ -136,7 +149,7 @@ const ProjectThumbnail = (props) => {
     return (
         <MainWrapper>
             <BadgesWrapper>
-                {indevelopment ? <NewBadge><span>Coming soon</span></NewBadge> : null}
+                {indevelopment ? <NewBadge><span>In development</span></NewBadge> : null}
             </BadgesWrapper>
             <ImgWrapper>
                 <Img fluid={mainImage} />
@@ -145,7 +158,7 @@ const ProjectThumbnail = (props) => {
                 <h1>{title}</h1>
                 <p>{description.description}</p>
                 <Buttons>
-                    <a target="_blank" href={gitHubLink} className={gitHubLink !== null ? "" : "no-active"} >Github</a>
+                    <a target="_blank" href={gitHubLink} className={gitHubLink !== null ? "" : "no-active"} ><img src="https://cdn.jsdelivr.net/npm/simple-icons@v2/icons/github.svg" alt="Facebook" /></a>
                     <a target="_blank" href={liveDemo} className={liveDemo !== null ? "" : "no-active"}>Live Demo</a>
                 </Buttons>
             </Info>

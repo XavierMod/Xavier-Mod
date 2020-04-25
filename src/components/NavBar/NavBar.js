@@ -171,7 +171,7 @@ class NavBar extends Component {
                 </SocialMediaLinks>
             </NavBarMenu>
             <NavBarWrapper>
-                <Name>xavier mod.</Name>
+                    <Name><AniLink style={{color: 'white', textDecoration: 'none'}}cover direction="top" bg="#663399" bg="#000000" to={"/"}>xavier mod.                </AniLink></Name>
                 <SocialMediaLinks>
                         {socialLinks.map((el, ind) => {
                             return <a key={ind} href={el.url} target="_blank"><img height="20" width="20" src={el.icon} /></a>

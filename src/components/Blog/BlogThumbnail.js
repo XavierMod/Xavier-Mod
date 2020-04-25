@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Img from 'gatsby-image';
 import {Link} from 'gatsby'
 import { sizes, largerThan, smallerThan } from '../Helpers/mediaQueries';
+import AniLink from "gatsby-plugin-transition-link/AniLink";
 
 const MainWrapper = styled.div`
     max-width: 600px;
@@ -24,7 +25,7 @@ const MainWrapper = styled.div`
     }
 
     ${smallerThan.tablet`
-        margin: 60px auto;
+        margin: 90px auto;
         padding: 10px;
     `};
 `;
@@ -66,7 +67,7 @@ const ShortDescription = styled.div`
     padding-top: 10px;
 
     ${smallerThan.tablet`
-         font-size: 13px;
+         font-size: 20px;
     `};
 `;
 
@@ -74,7 +75,7 @@ const BlogThumbnail = (props) => {
     const { title, slug, description, date, image:{fluid} } = props.post;
     return (
         <MainWrapper>
-            <Link to={"/blog/" + slug}>
+            <AniLink cover bg="#000000" to={"/blog/" + slug}>
                 <Info>
                     <SubHeading>
                         <InfoTime>{date}</InfoTime>
@@ -84,7 +85,7 @@ const BlogThumbnail = (props) => {
                         <p>{description}</p>
                     </ShortDescription>
                 </Info>
-            </Link>
+            </AniLink>
         </MainWrapper>
     )
 }

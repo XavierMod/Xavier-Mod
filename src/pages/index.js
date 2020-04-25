@@ -2,20 +2,11 @@ import React, {Component} from 'react'
 import '../index.css';
 import '../styles/animations.css';
 import styled from 'styled-components'
-import ProfilePic from '../components/Library/ProfilePic';
-import XavierModSvg from '../images/XavierMod.svg';
-import Cursor from '../components/Helpers/Cursor';
-import Clap from '../components/Helpers/Clap';
-import {Link} from 'gatsby'
-import H3 from '../components/Library/Style/H3';
 import AniLink from "gatsby-plugin-transition-link/AniLink";
 import { sizes, largerThan, smallerThan } from '../components/Helpers/mediaQueries';
-import navBarLinks from '../constants/navbar-links';
 import SEO from '../components/SEO';
-import Layout from '../components/Layout/Layout';
 import NavBar from '../components/NavBar/NavBar';
 import socialLinks from '../constants/social-links';
-import {WordReveal} from 'react-text-reveal';
 
 const LandingContent = styled.div`
     font-family: 'Noto Serif KR';
@@ -164,7 +155,7 @@ class index extends Component {
                             </div>
                         </Code>
                         <ViewPosts><AniLink
-                                cover
+                                paintDrip color="#000000"
                                 to={"/blog"}
                                 direction="up"
                                 duration={1}
