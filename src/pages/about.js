@@ -58,7 +58,7 @@ const Paragraph = styled.div`
     padding-bottom: 30px;
 
     ${smallerThan.tablet`
-        font-size: 18px;
+        font-size: 24px;
     `};
 
     a {
@@ -99,7 +99,7 @@ class About extends Component {
                     </Title>
                     <Description>
                         <Paragraph>
-                        I am a 23 y/o junior Front-End / UI Developer based in London available for part-time oportunities.
+                        I'm a 23 y/o junior Front-End / UI Developer based in London available for part-time oportunities.
                         </Paragraph>
 
                         <Paragraph>
@@ -107,13 +107,18 @@ class About extends Component {
                         </Paragraph>
 
                         <Paragraph>
-                        My passion is to build UIs and digital products using web technologies.
+                        Originally from Barcelona and living in London, I have +3 years of professional experience as a UI Designer and +1 year as a web developer.
                         </Paragraph>
 
                         <Paragraph>
-                        +3 years of professional experience as a UI Designer and +1 year as a Web Developer.
+                        Starting my career as a UI Designer, I fell in love with web technologies in my first year of University and couldn't stop since then. I mainly focus on front-end web development but I'm also interested in all areas of software engineering. With an eye for design and as a Pixel Perfectionist, I build visually appealing and functional digital products to make people's lives easier. 
+                        </Paragraph>
+
+                        <Paragraph>
+                        With a highly entrepenurial spirit, an almost sick obsession for coding and being self-learner by nature, I'm always looking for opportunities to join engineering teams of talented developers working on great products across the globe.
                         </Paragraph>
                         <SmallParagraph>
+                        Tech Stack: 
                         HTML5+, JS ES6+, CSS3+, React.js (Gatsby, Redux, Styled components), GraphQL, NPM/Yarn, Git, Shopify, Headless CMS, Three.js, PHP, MySQL, Firebase.
                         </SmallParagraph>
                     </Description>
