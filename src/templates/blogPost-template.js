@@ -17,6 +17,7 @@ const FixedDiv = styled.div`
     z-index: 100;
     height: 70px;
     background-color: #121212;
+    
 `;
 
 const ImageWrapper = styled.div`
@@ -44,9 +45,15 @@ const TemplateWrapper = styled.div`
     letter-spacing: -0.5px;
     font-size: 20px;
 
+
+    ${smallerThan.tablet`
+        line-height: 30px;
+    `};
+
     p {
         font-size: 20px;
-        line-height: 35px;
+        line-height: 40px;
+
     }
 
     a {

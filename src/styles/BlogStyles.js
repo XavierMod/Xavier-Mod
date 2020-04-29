@@ -39,6 +39,7 @@ export const BOLD = styled.p`
 export const UL_LI = styled.li`
     margin: 20px 0;
     list-style: square;
+    line-height: 40px;
 `;
 
 

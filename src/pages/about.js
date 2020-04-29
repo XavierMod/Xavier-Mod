@@ -100,7 +100,7 @@ class About extends Component {
                     </Title>
                     <Description>
                         <Paragraph>
-                        I'm a 23 y/o junior Front-End / UI Developer based in London available for part-time oportunities.
+                        I'm a 23 y/o junior Front-End / UI Developer based in London available for part-time opportunities.
                         </Paragraph>
 
                         <Paragraph>
@@ -116,7 +116,7 @@ class About extends Component {
                         </Paragraph>
 
                         <Paragraph>
-                        With a highly entrepenurial spirit and being self-learner by nature, I'm always looking for opportunities to join engineering teams of talented developers working on great products across the globe.
+                        With a highly entrepreneurial spirit and being self-learner by nature, I'm always looking for opportunities to join engineering teams of talented developers working on great products across the globe.
                         </Paragraph>
                         <SmallParagraph>
                         Tech Stack: 
