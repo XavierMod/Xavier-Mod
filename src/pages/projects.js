@@ -50,6 +50,7 @@ const getProjects = graphql`
             node {
             title
             type
+            tags
             client
             liveDemo
             gitHubLink

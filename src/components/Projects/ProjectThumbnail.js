@@ -3,6 +3,8 @@ import styled from 'styled-components'
 import Img from 'gatsby-image'
 import {useStaticQuery, graphql} from 'gatsby'
 import { sizes, largerThan, smallerThan } from '../Helpers/mediaQueries';
+import Tag from './Tag';
+
 
 const getDefaultImage = graphql`
     query {
@@ -64,10 +66,6 @@ const NewBadge = styled.div`
 const ImgWrapper = styled.div`
     position: relative;
 
-    div {
-        height: 300px;
-    }
-
     ${smallerThan.tablet`
         div {
             height: 300px;
@@ -80,6 +78,7 @@ const Info = styled.div`
 
     h1 {
         margin: 20px 0;
+        margin-bottom: 0;
         font-size: 15px !important;
         font-weight: 700 !important;
     }
@@ -144,7 +143,7 @@ const ProjectThumbnail = (props) => {
 
     let mainImage = featuredImage === null ? defaultIMG : featuredImage.fluid;
 
-    console.log(props);
+    console.log('THUM', props);
 
     return (
         <MainWrapper>
@@ -152,10 +151,11 @@ const ProjectThumbnail = (props) => {
                 {indevelopment ? <NewBadge><span>In development</span></NewBadge> : null}
             </BadgesWrapper>
             <ImgWrapper>
-                <Img fluid={mainImage} />
+                <Img style={{height: '300px'}} fluid={mainImage} />
             </ImgWrapper>
             <Info>
                 <h1>{title}</h1>
+                <Tag tagName={props.project.tags} />
                 <p>{description.description}</p>
                 <Buttons>
                     <a target="_blank" href={gitHubLink} className={gitHubLink !== null ? "" : "no-active"} ><img src="https://cdn.jsdelivr.net/npm/simple-icons@v2/icons/github.svg" alt="Facebook" /></a>

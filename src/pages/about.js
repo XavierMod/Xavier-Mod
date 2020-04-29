@@ -70,6 +70,7 @@ const Paragraph = styled.div`
 const SmallParagraph = styled.div`
     font-size: 15px;
     letter-spacing: -0.8px;
+    margin-bottom: 20px;
 `;
 
 const PaddingTop = styled.div`
@@ -111,16 +112,20 @@ class About extends Component {
                         </Paragraph>
 
                         <Paragraph>
-                        Starting my career as a UI Designer, I fell in love with web technologies in my first year of University and couldn't stop since then. I mainly focus on front-end web development but I'm also interested in all areas of software engineering. With an eye for design and as a Pixel Perfectionist, I build visually appealing and functional digital products to make people's lives easier. 
+                        I build visually appealing and functional digital products to make people's lives easier. Starting my career as a UI Designer, I fell in love with web technologies in my first year of University and couldn't stop since then. I mainly focus on front-end web development but I'm also interested in all areas of software engineering.
                         </Paragraph>
 
                         <Paragraph>
-                        With a highly entrepenurial spirit, an almost sick obsession for coding and being self-learner by nature, I'm always looking for opportunities to join engineering teams of talented developers working on great products across the globe.
+                        With a highly entrepenurial spirit and being self-learner by nature, I'm always looking for opportunities to join engineering teams of talented developers working on great products across the globe.
                         </Paragraph>
                         <SmallParagraph>
                         Tech Stack: 
                         HTML5+, JS ES6+, CSS3+, React.js (Gatsby, Redux, Styled components), GraphQL, NPM/Yarn, Git, Shopify, Headless CMS, Three.js, PHP, MySQL, Firebase.
                         </SmallParagraph>
+
+                        <Paragraph>
+                        I'm also a musician in my spare time, under the pseudonym of <a target="_blank" href="https://www.frankmod.com">Frank Mod.</a>
+                        </Paragraph>
                     </Description>
                 </AboutContent>
 
