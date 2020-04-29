@@ -51,7 +51,7 @@ class ProjectList extends Component {
                     <H3 body="Front-End Projects" />
                     <p>My top priority projects. </p>
                     {this.state.projects.map((el, ind) => {
-                        if (el.node.type == 'Front-End Development' && el.node.featuredProject !== true && el.node.agedWarning == null) {
+                        if (el.node.type == 'Front-End Development' && el.node.featuredProject !== true) {
                             return (
                                     <ProjectThumbnail
                                         project={el.node}
