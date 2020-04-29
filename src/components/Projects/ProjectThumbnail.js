@@ -46,7 +46,8 @@ const BadgesWrapper = styled.div`
 `;
 
 const NewBadge = styled.div`
-    background-color: #9826fc;
+    background-color: ${props => props.background};
+    color: ${props => props.color};
     height: 35px;
     margin: 10px;
     border-radius: 2px;
@@ -139,7 +140,7 @@ const ProjectThumbnail = (props) => {
     const data = useStaticQuery(getDefaultImage);
     const defaultIMG = data.file.childImageSharp.fluid;
 
-    const {title, type, featuredImage, date, indevelopment, featuredProject, description, gitHubLink, liveDemo} = props.project;
+    const {title, type, featuredImage, date, indevelopment, agedWarning, featuredProject, description, gitHubLink, liveDemo} = props.project;
 
     let mainImage = featuredImage === null ? defaultIMG : featuredImage.fluid;
 
@@ -148,7 +149,8 @@ const ProjectThumbnail = (props) => {
     return (
         <MainWrapper>
             <BadgesWrapper>
-                {indevelopment ? <NewBadge><span>In development</span></NewBadge> : null}
+                {indevelopment ? <NewBadge background="#9826fc" color="white"><span>In development</span></NewBadge> : null}
+                {agedWarning ? <NewBadge background="#666699" color="white"><span>⚠️Old project</span></NewBadge> : null}
             </BadgesWrapper>
             <ImgWrapper>
                 <Img style={{height: '300px'}} fluid={mainImage} />

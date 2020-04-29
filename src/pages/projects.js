@@ -53,6 +53,7 @@ const getProjects = graphql`
             tags
             client
             liveDemo
+            agedWarning
             gitHubLink
             description {
                 description
