@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import SEO from '../components/SEO';
 import { sizes, largerThan, smallerThan } from '../components/Helpers/mediaQueries';
 import ProfilePic from '../components/Library/ProfilePic';
+import TechStack from '../components/Library/TechStack';
 
 const AboutContent = styled.div`
     font-family: 'Noto Serif KR';
@@ -77,11 +78,56 @@ const PaddingTop = styled.div`
     padding-top: 70px;
 `;
 
+const ShowTechStack = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #212121;
+    padding: 0 5px;
+    max-width: 700px;
+    margin: auto;
+    margin-bottom: 30px;
+    position: relative;
+
+    h1 {
+        flex: 9;
+        font-family: 'Menlo', 'Monaco', 'Courier New', Courier, monospace;
+        margin-left: 15px;
+    }
+
+    svg {
+        flex: 1;
+        padding: 20px;
+        fill: white;
+        transform: scale(0.7) rotate(${props => props.rotation});
+        opacity: 0.5;
+        cursor: pointer;
+        transition: ease .2s all;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+`;
+
+const Legend = styled.div`
+    position: absolute;
+    right: 80px;
+    padding: 5px 10px;
+    background: #17b34b;
+    font-weight: 700;
+    font-size: 10px;
+    border-radius: 300px;
+    transition: all ease .4s;
+    opacity: ${props => props.opacity};
+`;
+
 class About extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            defaultView: false
+            defaultView: false,
+            showTechStack: false
         }
     }
     render() {
@@ -92,8 +138,18 @@ class About extends Component {
                 <SEO title="About" />
                 <PaddingTop />
                 <TopLine>
-                    <h1>Interface crafter, Internet wanderer, React addict. </h1>
+                    <h1>Junior front-end, future full-stack, experienced UI Designer. </h1>
                 </TopLine>
+                <ShowTechStack rotation={this.state.showTechStack ? '90deg': '-90deg'}>
+                    <Legend opacity={this.state.showTechStack ? '1' : '0'}>
+                        <p>Current focus</p>
+                    </Legend>
+                    <h1>{this.state.showTechStack ? 'Hide Tech Stack' : 'Show Tech Stack'}</h1>
+                    <svg onClick={() => this.setState({showTechStack: !this.state.showTechStack})} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M8.122 24l-4.122-4 8-8-8-8 4.122-4 11.878 12z"/></svg>
+                </ShowTechStack>
+                <AboutContent>
+                    {this.state.showTechStack ? <TechStack /> : null}
+                </AboutContent>
                 <AboutContent>
                     <Title>
                         hi.
@@ -118,17 +174,12 @@ class About extends Component {
                         <Paragraph>
                         With a highly entrepreneurial spirit and being self-learner by nature, I'm always looking for opportunities to join engineering teams of talented developers working on great products across the globe.
                         </Paragraph>
-                        <SmallParagraph>
-                        Tech Stack: 
-                        HTML5+, JS ES6+, CSS3+, React.js (Gatsby, Redux, Styled components), GraphQL, NPM/Yarn, Git, Shopify, Headless CMS, Three.js, PHP, MySQL, Firebase.
-                        </SmallParagraph>
 
                         <Paragraph>
                         I'm also a musician in my spare time, under the pseudonym of <a target="_blank" href="https://www.frankmod.com">Frank Mod.</a>
                         </Paragraph>
                     </Description>
                 </AboutContent>
-
                 <AboutContent>
                     <Title>
                         experience
@@ -142,6 +193,19 @@ class About extends Component {
                         </Paragraph>
                         <Paragraph>
                         2017-2018. UI Designer / Visual Designer <a>Furgo</a>
+                        </Paragraph>
+                    </Description>
+                </AboutContent>
+                <AboutContent>
+                    <Title>
+                        education
+                    </Title>
+                    <Description>
+                        <Paragraph>
+                        2018-2021. BSc Digital Design at <a>Brunel University London</a>
+                        </Paragraph>
+                        <Paragraph>
+                        2016-2018. Marketing and Advertising <a>CEP</a>
                         </Paragraph>
                     </Description>
                 </AboutContent>
