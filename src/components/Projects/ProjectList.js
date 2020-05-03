@@ -23,43 +23,61 @@ const ProjectsBlock = styled.div`
         }
 `;
 
-const ProjectsBar = styled.div`
+const MenuWrapper = styled.div`
+    max-width: 700px;
+    margin: auto;
+`;
+
+const ProjectsOptionsList = styled.div`
         font-family: 'Menlo', 'Monaco', 'Courier New', Courier, monospace;
-        background: #212121;
+        padding: 20px;
         display: flex;
-        align-items: center;
-        justify-content: center;
         background: #212121;
         max-width: 700px;
-        margin: auto;
-        margin-bottom: 0px;
-        position: relative;
-
-        ${smallerThan.tablet`
-            background: none;
-        `};
-
+        text-align: left;
+        
         li {
-            display: inline-block;
-            margin: 20px;
+            margin: 30px 0;
             opacity: 0.3;
             cursor: pointer;
             transition: all ease .3s;
-
-            ${smallerThan.tablet`
-                font-size: 11px;
-                margin: 5px;
-            `};
-
-            ${largerThan.mobile`
-                font-size: 21px;
-                margin: 15px;
-            `};
+            font-size: 18px;
 
             &:hover {
                 opacity: 1;
             }
         }
+`;
+
+const ProjectsOptions = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #212121;
+    padding: 0 5px;
+    margin: auto;
+    position: relative;
+    max-width: 700px;
+
+    h1 {
+        flex: 9;
+        font-family: 'Menlo', 'Monaco', 'Courier New', Courier, monospace;
+        margin-left: 15px;
+    }
+
+    svg {
+        flex: 1;
+        padding: 20px;
+        fill: white;
+        transform: scale(0.7) rotate(${props => props.rotation});
+        opacity: 0.5;
+        cursor: pointer;
+        transition: ease .2s all;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
 `;
 
 class ProjectList extends Component {
@@ -140,25 +158,37 @@ class ProjectList extends Component {
         }
     }
 
+    renderList = () => {
+        return(
+            <ProjectsOptionsList>
+            <ul>
+                <li 
+                onClick={() => this.setState({activeTab: 'featured'})}
+                style={this.state.activeTab == 'featured'? {opacity: 1} : {opacity: 0.2}}>featured</li>
+                <li 
+                onClick={() => this.setState({activeTab: 'front-end'})}
+                style={this.state.activeTab == 'front-end'? {opacity: 1} : {opacity: 0.2}}>front-end</li>
+                <li 
+                onClick={() => this.setState({activeTab: 'full-stack'})}
+                style={this.state.activeTab == 'full-stack'? {opacity: 1} : {opacity: 0.2}}>full-stack</li>
+                <li 
+                onClick={() => this.setState({activeTab: 'ui-design'})}
+                style={this.state.activeTab == 'ui-design'? {opacity: 1} : {opacity: 0.2}}>ui-design</li>
+            </ul>
+     </ProjectsOptionsList>
+        )
+    }
+ 
     render() {
         return (
             <React.Fragment>
-                <ProjectsBar>
-                       <u>
-                           <li 
-                           onClick={() => this.setState({activeTab: 'featured'})}
-                           style={this.state.activeTab == 'featured'? {opacity: 1} : {opacity: 0.2}}>featured</li>
-                           <li 
-                           onClick={() => this.setState({activeTab: 'front-end'})}
-                           style={this.state.activeTab == 'front-end'? {opacity: 1} : {opacity: 0.2}}>front-end</li>
-                           <li 
-                           onClick={() => this.setState({activeTab: 'full-stack'})}
-                           style={this.state.activeTab == 'full-stack'? {opacity: 1} : {opacity: 0.2}}>full-stack</li>
-                           <li 
-                           onClick={() => this.setState({activeTab: 'ui-design'})}
-                           style={this.state.activeTab == 'ui-design'? {opacity: 1} : {opacity: 0.2}}>ui-design</li>
-                       </u>
-                </ProjectsBar>
+                <MenuWrapper>
+                    <ProjectsOptions rotation={this.state.showProjectsOptions ? '90deg' : '-90deg'}>
+                        <h1>{this.state.activeTab}</h1>
+                        <svg onClick={() => this.setState({showProjectsOptions: !this.state.showProjectsOptions})} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M8.122 24l-4.122-4 8-8-8-8 4.122-4 11.878 12z"/></svg>
+                    </ProjectsOptions>
+                    {this.state.showProjectsOptions ? this.renderList() : null}
+                </MenuWrapper>
                 {this.renderProjects()}
             </React.Fragment>
         )
