@@ -7,19 +7,37 @@ const MainWrapper = styled.div`
     font-family: 'Noto Serif KR';
 `;
 
+const Images = styled.div`
+    flex: 1%;
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+`;
+
 const FooterWrapper = styled.div`
+    padding: 10px;
+    background: #212121;
+    font-family: 'Menlo', 'Monaco', 'Courier New', Courier, monospace;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     p {
-        display: inline-block;
+        flex: 99%;
     }
 
     a {
-        flex: 1;
         cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
-`;
 
-const FooterLink = styled.span`
-    text-decoration: underline;
+    img {
+        filter: invert();
+        width: 15px;
+        padding: 3px;
+    }
 `;
 
 const Footer = () => {
@@ -30,7 +48,14 @@ const Footer = () => {
     return (
         <MainWrapper>
             <FooterWrapper>
-                <p>© {n} by Xavier Mod. All rights reserved. <p>Built with <FooterLink>Gatsby.js</FooterLink> and Contentful.</p></p>
+                <p>© {n}. Xavier Mod.</p>
+                <a href="#" target="_blank">
+                <Images>
+                    <a href="https://www.gatsbyjs.org/" target="_blank"><img height="32" width="32" src="https://cdn.jsdelivr.net/npm/simple-icons@v2/icons/gatsby.svg" /></a>
+                    <a href="https://www.netlify.com/" target="_blank"><img height="32" width="32" src="https://cdn.jsdelivr.net/npm/simple-icons@v2/icons/netlify.svg" /></a>
+                    <a href="https://github.com/XavierMod/Xavier-Mod" target="_blank"><img style={{marginLeft: '10px'}} height="32" width="32" src="https://cdn.jsdelivr.net/npm/simple-icons@v2/icons/github.svg" /></a>
+                </Images>
+                </a>
             </FooterWrapper>
         </MainWrapper>
 
