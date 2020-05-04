@@ -139,6 +139,22 @@ class ProjectList extends Component {
                 })}
             </ProjectsBlock>
             )
+        } else if (this.state.activeTab == 'in-development') {
+            return(
+                <ProjectsBlock>
+                <H3 body="Projects in the making" />
+                <p>This is what I'm working on right now. They will be available soon!</p>
+                {this.state.projects.map((el, ind) => {
+                    if (el.node.indevelopment == true) {
+                        return (
+                                <ProjectThumbnail
+                                    project={el.node}
+                                />
+                            )
+                    }
+                })}
+            </ProjectsBlock>
+            )
         } else if (this.state.activeTab == 'ui-design') {
             return(
                 <ProjectsBlock>
@@ -172,8 +188,12 @@ class ProjectList extends Component {
                 onClick={() => this.setState({activeTab: 'full-stack'})}
                 style={this.state.activeTab == 'full-stack'? {opacity: 1} : {opacity: 0.2}}>full-stack</li>
                 <li 
+                onClick={() => this.setState({activeTab: 'in-development'})}
+                style={this.state.activeTab == 'in-development' ? {opacity: 1} : {opacity: 0.2}}>in-development</li>
+                <li 
                 onClick={() => this.setState({activeTab: 'ui-design'})}
                 style={this.state.activeTab == 'ui-design'? {opacity: 1} : {opacity: 0.2}}>ui-design</li>
+
             </ul>
      </ProjectsOptionsList>
         )
