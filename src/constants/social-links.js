@@ -15,5 +15,10 @@ export default [
         name: 'github',
         icon: 'https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/github.svg',
         url: 'https://github.com/XavierMod'
+    },
+    {
+        name: 'fiverr',
+        icon: 'https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/fiverr.svg',
+        url: 'https://www.fiverr.com/xaviermod'
     }
 ]

@@ -151,16 +151,11 @@ class index extends Component {
                             <Property><SpanProp>university</SpanProp>:<SpanResult> <a>Brunel University</a></SpanResult>;</Property>
                             <Property><SpanProp>grad-year</SpanProp>:<SpanResult> 2021</SpanResult>;</Property>
                             <Property><SpanProp>current-role</SpanProp>:<SpanResult> available-part-time</SpanResult>;</Property>
+                            <Property><SpanProp>side-gigs</SpanProp>:<SpanResult> freelancing</SpanResult>;</Property>
                             <p>{"`;"}</p>
                             </div>
                         </Code>
-                        <ViewPosts><AniLink
-                                paintDrip color="#000000"
-                                to={"/blog"}
-                                direction="up"
-                                duration={1}
-                                bg="black" 
-                                >                        All Posts</AniLink></ViewPosts>
+                        <ViewPosts><a target="_blank" href="https://www.fiverr.com/xaviermod">Freelancing profile</a></ViewPosts>
                         <SocialMediaLinks>
                         {socialLinks.map((el, ind) => {
                             return <a key={ind} href={el.url} target="_blank"><img height="20" width="20" src={el.icon} /></a>
