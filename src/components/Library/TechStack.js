@@ -92,10 +92,16 @@ class TechStack extends Component {
                             link="https://nodejs.org/en/"/>
                          <CircleBar 
                             text="PHP"
-                            color="255, 255, 255"
+                            color="15, 255, 95"
                             percentage="40"
                             iconName="php"
                             link="https://www.php.net/"/>
+                        <CircleBar 
+                            text="Wordpress"
+                            color="15, 255, 95"
+                            percentage="50"
+                            iconName="wordpress"
+                            link="https://wordpress.org/"/>
                 </CircleBars>
                 <CircleBars>
                     <h1>UI Design</h1>
